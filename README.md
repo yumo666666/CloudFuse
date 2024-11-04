@@ -1,5 +1,4 @@
-![Demo](./image/1.jpg)
-![Demo](./image/2.jpg)
+| ![Demo](./image/1.jpg) | ![Demo](./image/2.jpg) |
 # 使用方法
 ## 本地直接运行
 拉取项目后
