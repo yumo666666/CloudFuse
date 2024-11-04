@@ -1,3 +1,11 @@
+# 使用方法
+##本地直接运行
+拉取项目后直接运行main.py
+web管理页面为http://ip:8000/admin/
+##docker运行
+拉取项目后在项目目录下终端运行sudo docker-compose up -d
+容器成功运行后web管理页面为http://ip:8000/admin/
+
 # 如何添加新函数
 
 本文档详细说明如何为云函数系统添加新的函数。
