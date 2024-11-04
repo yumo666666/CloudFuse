@@ -1,4 +1,9 @@
-| ![Demo](./image/1.jpg) | ![Demo](./image/2.jpg) |
+
+![Demo](./image/1.jpg)  
+![Demo](./image/2.jpg) 
+
+   - [ ] 新函数依赖冲突时，新建虚拟环境
+
 # 使用方法
 ## 本地直接运行
 拉取项目后
