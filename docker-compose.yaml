@@ -5,7 +5,7 @@ services:
     container_name: CloudFunction
     image: yumo666/cloud_function:latest
     ports:
-      - "3030:8000"  # 将容器的8000端口映射到主机的3030端口
+      - "8000:8000"  # 将容器的8000端口映射到主机的3030端口
     volumes:
       - ./:/app  # 将整个项目目录挂载到容器的/app目录
     restart: unless-stopped 
