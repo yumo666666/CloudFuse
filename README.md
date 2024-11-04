@@ -1,9 +1,17 @@
 # 使用方法
 ## 本地直接运行
-拉取项目后直接运行main.py
+拉取项目后
+安装依赖环境
+```bash
+pip3 install -r requirements.txt
+```
+直接运行main.py
 web管理页面为http://ip:8000/admin/
 ## docker运行
-拉取项目后在项目目录下终端运行sudo docker-compose up -d
+拉取项目后在项目目录下终端运行
+```bash
+sudo docker-compose up -d
+```
 容器成功运行后web管理页面为http://ip:8000/admin/
 
 # 如何添加新函数
