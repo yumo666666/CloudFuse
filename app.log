@@ -1,0 +1,596 @@
+2024-11-03 15:07:56,649 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 15:07:56,650 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 15:07:56,650 - uvicorn.error - INFO - Started reloader process [6832] using statreload
+2024-11-03 15:07:57,118 - uvicorn.error - INFO - Started server process [6468]
+2024-11-03 15:07:57,119 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:07:57,120 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:09:12,882 - uvicorn.error - WARNING - StatReload detected file change in 'main.py'. Reloading...
+2024-11-03 15:09:13,368 - uvicorn.error - INFO - Started server process [8604]
+2024-11-03 15:09:13,369 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:09:13,370 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:09:21,435 - uvicorn.error - INFO - Shutting down
+2024-11-03 15:09:21,472 - uvicorn.error - INFO - Stopping reloader process [6832]
+2024-11-03 15:09:26,548 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 15:09:26,549 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 15:09:26,549 - uvicorn.error - INFO - Started reloader process [4080] using statreload
+2024-11-03 15:09:27,026 - uvicorn.error - INFO - Started server process [10756]
+2024-11-03 15:09:27,027 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:09:27,028 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:09:38,566 - utils.logger - INFO - Calling function: example_function
+2024-11-03 15:09:41,044 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:09:41,045 - utils.logger - ERROR - Error calling function get_random_xlsx_line: get_random_xlsx_line() missing 1 required positional argument: 'filename'
+2024-11-03 15:10:38,559 - uvicorn.error - WARNING - StatReload detected file change in 'main.py'. Reloading...
+2024-11-03 15:10:39,010 - uvicorn.error - INFO - Started server process [10572]
+2024-11-03 15:10:39,012 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:10:39,013 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:10:50,385 - utils.logger - INFO - Calling function: example_function
+2024-11-03 15:10:57,108 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:10:57,109 - utils.logger - ERROR - Error calling function get_random_xlsx_line: 
+2024-11-03 15:10:57,546 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:10:57,546 - utils.logger - ERROR - Error calling function get_random_xlsx_line: 
+2024-11-03 15:11:16,820 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:11:16,820 - utils.logger - ERROR - Error calling function get_random_xlsx_line: 
+2024-11-03 15:11:18,227 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:11:18,228 - utils.logger - ERROR - Error calling function get_random_xlsx_line: 
+2024-11-03 15:13:30,842 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:16:15,050 - uvicorn.error - WARNING - StatReload detected file change in 'main.py'. Reloading...
+2024-11-03 15:16:15,566 - uvicorn.error - INFO - Started server process [5912]
+2024-11-03 15:16:15,567 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:16:15,567 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:16:35,292 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:16:38,393 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:16:39,481 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:16:40,166 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:16:40,871 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:18:44,079 - uvicorn.error - WARNING - StatReload detected file change in 'main.py'. Reloading...
+2024-11-03 15:18:44,740 - uvicorn.error - INFO - Started server process [5764]
+2024-11-03 15:18:44,744 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:18:44,745 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:18:52,285 - uvicorn.error - WARNING - StatReload detected file change in 'main.py'. Reloading...
+2024-11-03 15:18:52,801 - uvicorn.error - INFO - Started server process [10292]
+2024-11-03 15:18:52,803 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:18:52,803 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:18:59,978 - utils.logger - INFO - Calling function: example_function
+2024-11-03 15:19:04,239 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:19:56,805 - uvicorn.error - WARNING - StatReload detected file change in 'apps\get_random_xlsx_line\function.py'. Reloading...
+2024-11-03 15:19:57,327 - uvicorn.error - INFO - Started server process [6232]
+2024-11-03 15:19:57,328 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:19:57,329 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:21:28,299 - uvicorn.error - WARNING - StatReload detected file change in 'apps\calculate\function.py'. Reloading...
+2024-11-03 15:21:29,088 - uvicorn.error - INFO - Started server process [10716]
+2024-11-03 15:21:29,088 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:21:29,089 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:23:29,349 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 15:23:29,350 - utils.logger - ERROR - Error calling function echo_message: echo_message() missing 1 required positional argument: 'message'
+2024-11-03 15:23:31,149 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 15:23:31,150 - utils.logger - ERROR - Error calling function echo_message: echo_message() missing 1 required positional argument: 'message'
+2024-11-03 15:23:33,680 - uvicorn.error - WARNING - StatReload detected file change in 'main.py'. Reloading...
+2024-11-03 15:23:34,430 - uvicorn.error - INFO - Started server process [4432]
+2024-11-03 15:23:34,432 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:23:34,433 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:23:37,437 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 15:23:37,437 - utils.logger - ERROR - Error calling function echo_message: echo_message() missing 1 required positional argument: 'message'
+2024-11-03 15:23:40,919 - utils.logger - INFO - Calling function: calculate
+2024-11-03 15:23:40,920 - utils.logger - ERROR - Error calling function calculate: calculate() missing 2 required positional arguments: 'num1' and 'num2'
+2024-11-03 15:26:52,045 - uvicorn.error - WARNING - StatReload detected file change in 'admin\admin.py'. Reloading...
+2024-11-03 15:27:28,228 - uvicorn.error - INFO - Stopping reloader process [4080]
+2024-11-03 15:29:29,831 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:29:29,854 - utils.logger - ERROR - Error checking dependencies on startup: 'BASE_DIR'
+2024-11-03 15:30:32,596 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:30:32,599 - utils.logger - ERROR - Error checking dependencies on startup: 'gbk' codec can't decode byte 0x93 in position 25: illegal multibyte sequence
+2024-11-03 15:31:18,579 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:31:18,581 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:31:18,583 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 15:31:18,584 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 15:31:18,584 - uvicorn.error - INFO - Started reloader process [3868] using statreload
+2024-11-03 15:31:19,217 - uvicorn.error - INFO - Started server process [6676]
+2024-11-03 15:31:19,218 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:31:19,218 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:31:19,221 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:31:19,221 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:31:34,204 - utils.logger - INFO - Calling function: calculate
+2024-11-03 15:31:34,204 - utils.logger - ERROR - Error calling function calculate: calculate() missing 2 required positional arguments: 'num1' and 'num2'
+2024-11-03 15:31:35,504 - utils.logger - INFO - Calling function: calculate
+2024-11-03 15:31:35,505 - utils.logger - ERROR - Error calling function calculate: calculate() missing 2 required positional arguments: 'num1' and 'num2'
+2024-11-03 15:31:38,632 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 15:31:38,633 - utils.logger - ERROR - Error calling function echo_message: echo_message() missing 1 required positional argument: 'message'
+2024-11-03 15:32:18,019 - uvicorn.error - WARNING - StatReload detected file change in 'main.py'. Reloading...
+2024-11-03 15:32:19,101 - uvicorn.error - INFO - Started server process [828]
+2024-11-03 15:32:19,102 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:32:19,103 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:32:19,106 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:32:19,106 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:32:30,027 - utils.logger - INFO - Calling function: calculate
+2024-11-03 15:32:36,187 - utils.logger - INFO - Calling function: calculate
+2024-11-03 15:32:44,556 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 15:32:49,362 - utils.logger - INFO - Calling function: example_function
+2024-11-03 15:32:59,690 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:33:04,712 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:33:07,236 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:10,984 - uvicorn.error - WARNING - StatReload detected file change in 'apps\get_random_xlsx_line\function.py'. Reloading...
+2024-11-03 15:34:11,681 - uvicorn.error - INFO - Started server process [3444]
+2024-11-03 15:34:11,682 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:34:11,683 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:34:11,685 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:34:11,685 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:34:18,946 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:21,022 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:21,923 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:22,491 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:23,003 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:23,523 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:24,116 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:24,584 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:25,128 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:25,757 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:26,309 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:26,876 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:27,382 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:27,897 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:28,348 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:28,841 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:33,976 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:34,896 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:35,480 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:36,100 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:36,683 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:37,221 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:37,742 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:34:39,177 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:35:10,836 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:35:11,538 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:35:51,223 - uvicorn.error - WARNING - StatReload detected file change in 'apps\get_random_xlsx_line\function.py'. Reloading...
+2024-11-03 15:35:51,895 - uvicorn.error - INFO - Started server process [10416]
+2024-11-03 15:35:51,897 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:35:51,897 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:35:51,900 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:35:51,900 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:36:00,041 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:01,415 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:02,238 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:02,721 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:02,913 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:03,067 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:03,225 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:03,397 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:03,565 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:03,735 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:03,878 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:04,061 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:04,226 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:04,396 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:04,567 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:04,726 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:04,880 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:05,064 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:05,228 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:05,400 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:05,572 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:05,751 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:05,906 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:06,110 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:06,269 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:06,395 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:06,570 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:06,735 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:06,929 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:07,111 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:07,319 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:07,499 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:07,672 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:07,852 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:08,033 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:08,211 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:08,385 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:08,540 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:08,704 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:08,875 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:09,052 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:09,234 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:09,418 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:09,712 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:09,776 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:09,956 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:10,163 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:10,357 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:10,564 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:10,745 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:10,923 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:11,092 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:11,259 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:11,429 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:11,610 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:11,790 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:11,969 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:12,287 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:12,467 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:12,638 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:12,798 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:12,971 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:13,154 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:13,331 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:13,513 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:13,704 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:13,908 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:14,094 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:14,275 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:14,450 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:14,644 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:14,839 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:15,029 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:15,230 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:15,429 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:15,624 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:15,840 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:16,054 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:16,253 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:16,469 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:16,674 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:16,892 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:17,088 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:17,303 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:17,496 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:17,701 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:17,902 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:18,091 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:18,299 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:18,504 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:18,697 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:18,901 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:19,105 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:19,322 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:19,521 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:19,695 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:19,905 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:20,111 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:20,294 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:20,485 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:20,669 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:20,844 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:21,025 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:21,181 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:21,350 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:21,543 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:21,736 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:21,927 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:22,107 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:22,274 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:22,431 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:22,614 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:22,799 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:36:23,234 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:38:14,392 - uvicorn.error - WARNING - StatReload detected file change in 'admin\admin.py'. Reloading...
+2024-11-03 15:38:15,061 - uvicorn.error - INFO - Started server process [6928]
+2024-11-03 15:38:15,062 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:38:15,062 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:38:15,064 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:38:15,065 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:39:41,552 - uvicorn.error - WARNING - StatReload detected file change in 'admin\admin.py'. Reloading...
+2024-11-03 15:39:42,169 - uvicorn.error - INFO - Started server process [3576]
+2024-11-03 15:39:42,170 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:39:42,170 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:39:42,172 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:39:42,173 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:41:19,147 - uvicorn.error - WARNING - StatReload detected file change in 'admin\admin.py'. Reloading...
+2024-11-03 15:41:19,833 - uvicorn.error - INFO - Started server process [2724]
+2024-11-03 15:41:19,834 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:41:19,834 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:41:19,836 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:41:19,837 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:41:36,937 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 15:41:38,954 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 15:41:40,036 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 15:43:00,695 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 15:45:35,448 - uvicorn.error - WARNING - StatReload detected file change in 'config.py'. Reloading...
+2024-11-03 15:45:36,470 - uvicorn.error - INFO - Started server process [3544]
+2024-11-03 15:45:36,476 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:45:36,483 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:45:36,485 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:45:36,485 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:46:03,348 - uvicorn.error - WARNING - StatReload detected file change in 'config.py'. Reloading...
+2024-11-03 15:46:04,978 - uvicorn.error - INFO - Started server process [1512]
+2024-11-03 15:46:04,979 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:46:04,980 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:46:04,983 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:46:04,983 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:48:40,416 - uvicorn.error - WARNING - StatReload detected file change in 'config.py'. Reloading...
+2024-11-03 15:48:42,244 - uvicorn.error - INFO - Started server process [2756]
+2024-11-03 15:48:42,245 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:48:42,246 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:48:42,248 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:48:42,249 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:48:58,908 - uvicorn.error - WARNING - StatReload detected file change in 'apps\calculate\function.py'. Reloading...
+2024-11-03 15:49:01,014 - uvicorn.error - INFO - Started server process [7364]
+2024-11-03 15:49:01,015 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:49:01,016 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:49:01,018 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:49:01,019 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:51:13,430 - utils.logger - INFO - Calling function: calculate
+2024-11-03 15:51:15,909 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 15:51:17,631 - utils.logger - INFO - Calling function: example_function
+2024-11-03 15:51:19,852 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:51:22,887 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 15:53:07,781 - uvicorn.error - WARNING - StatReload detected file change in 'main.py'. Reloading...
+2024-11-03 15:53:08,455 - uvicorn.error - INFO - Started server process [776]
+2024-11-03 15:53:08,456 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 15:53:08,457 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 15:53:08,459 - utils.logger - INFO - No new dependencies needed
+2024-11-03 15:53:08,460 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 15:53:39,655 - utils.logger - INFO - Calling function: cs2
+2024-11-03 15:53:40,935 - utils.logger - INFO - Calling function: cs2
+2024-11-03 15:54:46,858 - utils.logger - INFO - Calling function: calculate
+2024-11-03 15:54:49,181 - utils.logger - INFO - Calling function: cs2
+2024-11-03 15:54:56,327 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:54:57,185 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 15:54:59,605 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 15:55:00,310 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 15:55:00,779 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 15:56:07,375 - utils.logger - INFO - Calling function: example_function
+2024-11-03 15:56:09,617 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 15:56:11,728 - utils.logger - INFO - Calling function: calculate
+2024-11-03 16:00:34,384 - uvicorn.error - INFO - Shutting down
+2024-11-03 16:00:36,355 - uvicorn.error - INFO - Stopping reloader process [3868]
+2024-11-03 16:00:42,166 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:00:42,168 - utils.logger - INFO - No new dependencies needed
+2024-11-03 16:00:42,170 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 16:00:42,171 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 16:00:42,171 - uvicorn.error - INFO - Started reloader process [6820] using statreload
+2024-11-03 16:00:42,834 - uvicorn.error - INFO - Started server process [5416]
+2024-11-03 16:00:42,835 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:00:42,836 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:00:42,838 - utils.logger - INFO - No new dependencies needed
+2024-11-03 16:00:42,838 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:02:06,066 - uvicorn.error - INFO - Shutting down
+2024-11-03 16:02:08,213 - uvicorn.error - INFO - Stopping reloader process [6820]
+2024-11-03 16:02:29,449 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:02:29,451 - utils.logger - INFO - No new dependencies needed
+2024-11-03 16:02:29,452 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 16:02:29,453 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 16:02:29,454 - uvicorn.error - INFO - Started reloader process [10784] using statreload
+2024-11-03 16:02:30,124 - uvicorn.error - INFO - Started server process [7220]
+2024-11-03 16:02:30,125 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:02:30,126 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:02:30,128 - utils.logger - INFO - No new dependencies needed
+2024-11-03 16:02:30,128 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:02:55,508 - utils.logger - ERROR - Error calling function cs2: No module named 'apps.cs2.function'
+2024-11-03 16:02:58,743 - utils.logger - ERROR - Error calling function cs2: No module named 'apps.cs2.function'
+2024-11-03 16:03:03,447 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 16:03:05,985 - utils.logger - INFO - Calling function: example_function
+2024-11-03 16:03:08,370 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 16:03:08,370 - utils.logger - ERROR - Error calling function get_random_xlsx_line: 
+2024-11-03 16:03:50,835 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 16:03:50,836 - utils.logger - ERROR - Error calling function get_random_xlsx_line: 
+2024-11-03 16:03:57,543 - uvicorn.error - INFO - Shutting down
+2024-11-03 16:03:57,754 - uvicorn.error - INFO - Stopping reloader process [10784]
+2024-11-03 16:04:07,321 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:04:07,323 - utils.logger - INFO - No new dependencies needed
+2024-11-03 16:04:07,324 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 16:04:07,325 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 16:04:07,326 - uvicorn.error - INFO - Started reloader process [7544] using statreload
+2024-11-03 16:04:07,980 - uvicorn.error - INFO - Started server process [2384]
+2024-11-03 16:04:07,981 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:04:07,981 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:04:07,984 - utils.logger - INFO - No new dependencies needed
+2024-11-03 16:04:07,984 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:04:13,499 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 16:04:13,500 - utils.logger - ERROR - Error calling function get_random_xlsx_line: 
+2024-11-03 16:04:13,913 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 16:04:13,914 - utils.logger - ERROR - Error calling function get_random_xlsx_line: 
+2024-11-03 16:06:06,419 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 16:08:08,008 - uvicorn.error - INFO - Shutting down
+2024-11-03 16:08:08,629 - uvicorn.error - INFO - Stopping reloader process [7544]
+2024-11-03 16:08:15,839 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:08:15,842 - utils.logger - INFO - No new dependencies needed
+2024-11-03 16:08:15,843 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 16:08:15,844 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 16:08:15,844 - uvicorn.error - INFO - Started reloader process [2072] using statreload
+2024-11-03 16:08:16,573 - uvicorn.error - INFO - Started server process [612]
+2024-11-03 16:08:16,574 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:08:16,575 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:08:16,577 - utils.logger - INFO - No new dependencies needed
+2024-11-03 16:08:16,578 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:09:32,514 - utils.logger - INFO - Calling function: calculate
+2024-11-03 16:09:34,878 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 16:09:37,189 - utils.logger - INFO - Calling function: example_function
+2024-11-03 16:09:40,889 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 16:09:41,704 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 16:09:42,298 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 16:09:44,643 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 16:09:45,313 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 16:09:45,700 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 16:09:59,188 - utils.logger - INFO - Calling function: cs2
+2024-11-03 16:10:00,182 - utils.logger - INFO - Calling function: cs2
+2024-11-03 16:18:00,225 - uvicorn.error - WARNING - StatReload detected file change in 'admin\admin.py'. Reloading...
+2024-11-03 16:18:01,076 - uvicorn.error - INFO - Started server process [11204]
+2024-11-03 16:18:01,077 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:18:01,078 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:18:01,081 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:18:01,083 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:18:16,147 - utils.logger - INFO - Calling function: cs2
+2024-11-03 16:18:17,753 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 16:18:19,832 - utils.logger - INFO - Calling function: example_function
+2024-11-03 16:23:51,630 - uvicorn.error - INFO - Shutting down
+2024-11-03 16:23:54,752 - uvicorn.error - INFO - Stopping reloader process [2072]
+2024-11-03 16:23:58,579 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:23:58,582 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:23:58,583 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 16:23:58,585 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 16:23:58,586 - uvicorn.error - INFO - Started reloader process [7532] using statreload
+2024-11-03 16:23:59,232 - uvicorn.error - INFO - Started server process [9764]
+2024-11-03 16:23:59,233 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:23:59,233 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:23:59,236 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:23:59,236 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:30:08,003 - uvicorn.error - INFO - Shutting down
+2024-11-03 16:30:08,104 - uvicorn.error - INFO - Waiting for application shutdown.
+2024-11-03 16:30:08,104 - uvicorn.error - INFO - Application shutdown complete.
+2024-11-03 16:30:08,105 - uvicorn.error - INFO - Finished server process [9764]
+2024-11-03 16:30:09,676 - uvicorn.error - INFO - Stopping reloader process [7532]
+2024-11-03 16:30:12,964 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:30:12,967 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:30:12,969 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 16:30:12,970 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 16:30:12,971 - uvicorn.error - INFO - Started reloader process [5896] using statreload
+2024-11-03 16:30:13,652 - uvicorn.error - INFO - Started server process [7960]
+2024-11-03 16:30:13,653 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:30:13,653 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:30:13,656 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:30:13,657 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:31:12,488 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:31:22,096 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:31:37,835 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:32:15,084 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:32:17,433 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:32:36,983 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:32:59,720 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:33:02,723 - uvicorn.error - WARNING - StatReload detected file change in 'apps\cs2\function.py'. Reloading...
+2024-11-03 16:33:03,398 - uvicorn.error - INFO - Started server process [4476]
+2024-11-03 16:33:03,399 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:33:03,400 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:33:03,403 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:33:03,403 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:33:04,358 - utils.logger - INFO - Calling function: cs2
+2024-11-03 16:33:23,480 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:34:29,629 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:34:41,576 - uvicorn.error - INFO - Shutting down
+2024-11-03 16:34:41,623 - uvicorn.error - INFO - Stopping reloader process [5896]
+2024-11-03 16:34:47,289 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:34:47,291 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:34:47,292 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 16:34:47,293 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 16:34:47,294 - uvicorn.error - INFO - Started reloader process [10704] using statreload
+2024-11-03 16:34:47,953 - uvicorn.error - INFO - Started server process [6820]
+2024-11-03 16:34:47,954 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:34:47,955 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:34:47,958 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:34:47,958 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:38:59,243 - uvicorn.error - INFO - Shutting down
+2024-11-03 16:39:00,101 - uvicorn.error - INFO - Stopping reloader process [10704]
+2024-11-03 16:43:56,497 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:43:56,499 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:43:56,501 - uvicorn.error - INFO - Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\–¬Ω®Œƒº˛º–']
+2024-11-03 16:43:56,502 - uvicorn.error - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2024-11-03 16:43:56,503 - uvicorn.error - INFO - Started reloader process [6756] using statreload
+2024-11-03 16:43:57,149 - uvicorn.error - INFO - Started server process [10400]
+2024-11-03 16:43:57,150 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:43:57,151 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:43:57,153 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:43:57,153 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:44:01,170 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:44:30,562 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:44:48,088 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:44:52,137 - utils.logger - INFO - Calling function: cs2
+2024-11-03 16:45:15,826 - uvicorn.error - WARNING - StatReload detected file change in 'main.py'. Reloading...
+2024-11-03 16:45:16,517 - uvicorn.error - INFO - Started server process [5148]
+2024-11-03 16:45:16,518 - uvicorn.error - INFO - Waiting for application startup.
+2024-11-03 16:45:16,519 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 16:45:16,521 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:45:16,522 - uvicorn.error - INFO - Application startup complete.
+2024-11-03 16:45:18,312 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2024-11-03 16:45:23,246 - utils.logger - INFO - Calling function: calculate
+2024-11-03 16:45:25,996 - utils.logger - INFO - Calling function: cs2
+2024-11-03 16:45:27,633 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 16:45:29,247 - utils.logger - INFO - Calling function: example_function
+2024-11-03 16:45:31,804 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 16:45:33,739 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 16:45:51,188 - uvicorn.error - INFO - Shutting down
+2024-11-03 16:45:51,317 - uvicorn.error - INFO - Stopping reloader process [6756]
+2024-11-03 11:16:47,024 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:16:47,026 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:16:48,026 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:16:48,030 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:21:26,710 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:21:26,712 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:22:08,648 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:22:08,649 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:22:09,676 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:22:09,678 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:22:30,123 - utils.logger - INFO - Calling function: calculate
+2024-11-03 11:22:34,166 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 11:22:35,277 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 11:22:36,688 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 11:22:39,327 - utils.logger - INFO - Calling function: example_function
+2024-11-03 11:22:44,162 - utils.logger - INFO - Calling function: cs2
+2024-11-03 11:25:21,498 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:25:21,500 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:25:22,577 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:25:22,578 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:26:18,659 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:27:37,633 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:27:37,635 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:30:08,812 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:30:08,814 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:31:54,930 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:31:54,932 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:32:12,164 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:32:12,165 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:32:40,326 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:32:55,514 - utils.logger - INFO - Calling function: calculate
+2024-11-03 11:33:03,522 - utils.logger - INFO - Calling function: calculate
+2024-11-03 11:33:15,814 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 11:33:17,735 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 11:33:20,359 - utils.logger - INFO - Calling function: example_function
+2024-11-03 11:33:23,142 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 11:33:25,925 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 11:33:28,193 - utils.logger - INFO - Calling function: cs2
+2024-11-03 11:33:49,995 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:34:13,408 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-03 11:34:13,409 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:34:13,470 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 11:34:18,133 - utils.logger - INFO - Calling function: cs2
+2024-11-03 12:03:26,046 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 12:06:26,203 - utils.logger - INFO - Calling function: calculate
+2024-11-03 12:16:40,840 - utils.logger - INFO - Calling function: example_function
+2024-11-03 12:16:41,171 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 12:16:43,877 - utils.logger - INFO - Calling function: example_function
+2024-11-03 12:16:49,527 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:16:50,830 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:16:51,851 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:16:52,877 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:16:54,938 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 12:16:57,991 - utils.logger - INFO - Calling function: cs2
+2024-11-03 12:16:59,157 - utils.logger - INFO - Calling function: cs2
+2024-11-03 12:17:02,625 - utils.logger - INFO - Calling function: calculate
+2024-11-03 12:17:03,973 - utils.logger - INFO - Calling function: calculate
+2024-11-03 12:17:06,479 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:17:07,525 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:17:10,133 - utils.logger - INFO - Calling function: hello_world
+2024-11-03 12:17:12,207 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 12:17:13,463 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 12:17:15,000 - utils.logger - INFO - Calling function: echo_message
+2024-11-03 12:17:19,266 - utils.logger - INFO - Calling function: calculate
+2024-11-03 12:18:21,145 - utils.logger - INFO - Calling function: calculate
+2024-11-03 12:18:38,461 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:18:39,514 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:18:40,848 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:19:41,484 - utils.logger - INFO - Calling function: calculate
+2024-11-03 12:19:44,824 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 12:19:53,385 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:20:17,214 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:20:17,215 - utils.logger - ERROR - Error calling function get_random_xlsx_line: 400: Missing required parameter: filename
+2024-11-03 12:21:40,846 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:22:21,797 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:22:35,870 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:23:15,470 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:23:44,910 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:24:19,024 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:24:33,272 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:26:42,596 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:27:15,292 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2024-11-03 12:27:40,285 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:28:37,669 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:29:10,691 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:29:14,327 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:29:17,687 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:31:32,037 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:31:34,992 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:31:54,232 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:31:59,089 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:33:12,172 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:33:19,864 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-03 12:33:26,111 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-04 03:11:30,907 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-04 03:11:37,119 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-04 03:11:45,265 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2024-11-04 05:31:20,043 - utils.logger - INFO - Checking dependencies on startup...
+2024-11-04 05:31:20,047 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}

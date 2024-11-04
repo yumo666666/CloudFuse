@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API测试工具</title>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .left-panel {
+            flex: 1;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .right-panel {
+            flex: 2;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .function-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .function-btn {
+            padding: 15px;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+        }
+        .function-btn:hover {
+            background: #e0e0e0;
+        }
+        .function-btn.active {
+            background: #4CAF50;
+            color: white;
+            border-color: #45a049;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        pre {
+            background: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .response {
+            margin-top: 20px;
+        }
+        .function-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .function-desc {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .help-icon {
+            font-size: 14px;
+            color: #666;
+            cursor: help;
+            margin-left: 8px;
+            border: 1px solid #666;
+            border-radius: 50%;
+            padding: 0 6px;
+        }
+        .header-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .icon-button {
+            width: 28px;
+            height: 28px;
+            padding: 0;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .upload-button {
+            background: #2196F3;  /* 蓝色背景 */
+            border: none;
+        }
+        .upload-button:hover {
+            background: #1976D2;
+        }
+        .upload-button .plus-icon {
+            color: white;
+        }
+        .refresh-button {
+            background: #FF5722;  /* 橙色背景 */
+            border: none;
+        }
+        .refresh-button:hover {
+            background: #F4511E;
+        }
+        .refresh-button .refresh-icon {
+            color: white;
+        }
+        .plus-icon {
+            font-size: 20px;
+            line-height: 20px;
+        }
+        .refresh-icon {
+            font-size: 16px;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .refreshing {
+            animation: spin 1s linear infinite;
+        }
+        .param-input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+        .param-input label {
+            min-width: 100px;
+            margin: 0;
+            font-weight: bold;
+            text-align: right;
+        }
+        .param-input input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #paramsContainer {
+            margin-top: 5px;
+        }
+        /* 添加参数名称的样式 */
+        .param-name {
+            cursor: help;
+            border-bottom: 1px dashed #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>API测试工具</h1>
+    <div class="container">
+        <div class="left-panel">
+            <div class="panel-header">
+                <h2>可用函数</h2>
+                <div class="header-buttons">
+                    <button class="icon-button upload-button" 
+                            onclick="uploadFunction()" 
+                            data-tippy-content="上传新函数">
+                        <span class="plus-icon">+</span>
+                    </button>
+                    <button class="icon-button refresh-button" 
+                            onclick="refreshFunctions()" 
+                            data-tippy-content="刷新函数列表和依赖">
+                        <span class="refresh-icon">↻</span>
+                    </button>
+                </div>
+            </div>
+            <div class="function-list" id="functionSelector">
+                <!-- 函数列表将通过JS动态添加 -->
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="input-group">
+                <label>请求方法:</label>
+                <select id="method">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>URL:</label>
+                <input type="text" id="url" placeholder="输入请求URL">
+            </div>
+            <div class="input-group" id="paramsGroup">
+                <label>参数:</label>
+                <div id="paramsContainer">
+                    <!-- 参数输入框将在这里动态添加 -->
+                </div>
+            </div>
+            <div class="input-group" id="bodyGroup">
+                <label>请求体 (JSON):</label>
+                <textarea id="body" rows="5" placeholder='{"key": "value"}'></textarea>
+            </div>
+            <button onclick="sendRequest()">发送请求</button>
+            <div class="response">
+                <h3>响应结果:</h3>
+                <pre id="response"></pre>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="functionUpload" webkitdirectory directory multiple style="display: none" onchange="handleFunctionUpload(this.files)">
+
+    <script>
+        // 修改函数配置
+        const functionConfigs = {
+            'functions': {
+                method: 'GET',
+                baseUrl: 'http://127.0.0.1:8000/functions',
+                defaultParams: '',
+                description: '获取所有可用函数列表'
+            }
+        };
+
+        // 页面加载时初始化，包括加载apps中的函数
+        window.onload = async function() {
+            try {
+                const response = await fetch('/functions');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                // 添加函数到配置中
+                data.functions.forEach(func => {
+                    functionConfigs[func.name] = {
+                        method: func.method,
+                        baseUrl: `http://${window.location.hostname}:${window.location.port}${func.url}`,
+                        description: func.description,
+                        parameters: func.parameters
+                    };
+                });
+
+                initFunctionSelector();
+                
+                const firstFunction = Object.keys(functionConfigs)[0];
+                if (firstFunction) {
+                    selectFunction(firstFunction);
+                }
+
+                // 初始化所有tippy提示
+                initTippy();
+            } catch (error) {
+                console.error('Error loading functions:', error);
+                alert('加载函数列表失败：' + error.message);
+            }
+        };
+
+        // 初始化函数选择器
+        function initFunctionSelector() {
+            const selector = document.getElementById('functionSelector');
+            Object.entries(functionConfigs).forEach(([key, config]) => {
+                const btn = document.createElement('div');
+                btn.className = 'function-btn';
+                btn.innerHTML = `
+                    <div class="function-name">${key}</div>
+                    <div class="function-desc">${config.description}</div>
+                `;
+                btn.onclick = () => selectFunction(key);
+                selector.appendChild(btn);
+            });
+        }
+
+        // 选择函数
+        function selectFunction(functionName) {
+            // 更新按钮状态
+            document.querySelectorAll('.function-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.querySelector('.function-name').textContent === functionName) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // 获取函数配置
+            const config = functionConfigs[functionName];
+            
+            // 更新表单
+            document.getElementById('method').value = config.method;
+            document.getElementById('url').value = config.baseUrl;
+            document.getElementById('body').value = '';
+
+            // 更新参数输入区域
+            updateParamsInput(functionName);
+
+            // 如果是GET请求，隐藏请求体
+            const bodyGroup = document.getElementById('bodyGroup');
+            bodyGroup.style.display = config.method === 'GET' ? 'none' : 'block';
+        }
+
+        // 添加参数输入框管理
+        function updateParamsInput(functionName) {
+            const paramsContainer = document.getElementById('paramsContainer');
+            paramsContainer.innerHTML = '';
+
+            const config = functionConfigs[functionName];
+            if (config.parameters) {
+                config.parameters.forEach(param => {
+                    const paramDiv = document.createElement('div');
+                    paramDiv.className = 'param-input';
+                    paramDiv.innerHTML = `
+                        <label for="param-${param.name}">
+                            <span class="param-name" data-tippy-content="${param.description}">${param.name}</span>:
+                        </label>
+                        <input type="text" 
+                               id="param-${param.name}" 
+                               placeholder="${param.description}"
+                               value="${param.default || ''}"
+                               onchange="updateUrlWithParams('${functionName}')" />
+                    `;
+                    paramsContainer.appendChild(paramDiv);
+                    
+                    // 初始化参数名称的提示
+                    tippy('.param-name', {
+                        theme: 'light',
+                        placement: 'top',
+                        arrow: true,
+                        animation: 'scale'
+                    });
+                });
+                // 初始化时触发一次URL更新
+                updateUrlWithParams(functionName);
+            }
+        }
+
+        // 更新URL中的参数
+        function updateUrlWithParams(functionName) {
+            const baseUrl = functionConfigs[functionName].baseUrl;
+            const params = new URLSearchParams();
+
+            // 获取所有参数值
+            const paramInputs = document.querySelectorAll('.param-input input');
+            paramInputs.forEach(input => {
+                if (input.value) {
+                    params.append(input.id.replace('param-', ''), input.value);
+                }
+            });
+
+            // 更新URL输入框
+            const paramsString = params.toString();
+            document.getElementById('url').value = paramsString ? 
+                `${baseUrl}?${paramsString}` : baseUrl;
+        }
+
+        // 修改发送请求的逻辑
+        async function sendRequest() {
+            const method = document.getElementById('method').value;
+            const url = document.getElementById('url').value;
+            const body = document.getElementById('body').value;
+
+            try {
+                const options = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                };
+
+                if (method !== 'GET' && body) {
+                    options.body = body;
+                }
+
+                const response = await fetch(url, options);
+                const data = await response.json();
+                
+                // 显示格式化后的响应
+                document.getElementById('response').textContent = JSON.stringify(data, null, 4);
+            } catch (error) {
+                document.getElementById('response').textContent = `Error: ${error.message}`;
+            }
+        }
+
+        async function uploadFunction() {
+            document.getElementById('functionUpload').click();
+        }
+
+        async function handleFunctionUpload(files) {
+            const formData = new FormData();
+            
+            // 检查是否选择了文件
+            if (files.length === 0) {
+                alert('请选择要上传的函数文件！');
+                return;
+            }
+
+            // 检查文件结构
+            const fileNames = Array.from(files).map(file => file.webkitRelativePath);
+            const functionName = fileNames[0].split('/')[0];
+            
+            // 检查必需文件
+            const requiredFiles = [
+                `${functionName}/config.json`,
+                `${functionName}/function.py`,
+                `${functionName}/intro.md`
+            ];
+            
+            const missingFiles = requiredFiles.filter(required => 
+                !fileNames.some(name => name.endsWith(required))
+            );
+            
+            if (missingFiles.length > 0) {
+                alert(`缺少必需文件：\n${missingFiles.join('\n')}`);
+                return;
+            }
+
+            // 添加所有文件到 FormData
+            for (let file of files) {
+                formData.append('files', file, file.webkitRelativePath);
+            }
+
+            try {
+                const response = await fetch('/admin/upload_function', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    alert('函数上传成功！');
+                    // 刷新函数列表
+                    await refreshFunctions();
+                } else {
+                    const errorMessage = result.detail || JSON.stringify(result);
+                    alert(`上传失败: ${errorMessage}`);
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                alert(`上传失败: ${error.message || '未知错误'}`);
+            }
+        }
+
+        async function refreshFunctions() {
+            const refreshButton = document.querySelector('.refresh-icon');
+            refreshButton.classList.add('refreshing');
+
+            try {
+                const response = await fetch('/admin/refresh_functions');
+                if (response.ok) {
+                    const result = await response.json();
+                    let message = result.message || '刷新完成';
+                    
+                    // 安全地检���属性是否存在
+                    if (result.status === "conflict" && result.conflicts) {
+                        message = "依赖冲突:\n" + result.conflicts.join('\n');
+                    } else if (result.new_deps && result.new_deps.length > 0) {
+                        message = `${result.message}\n已安装新依赖：${result.new_deps.join(', ')}`;
+                    }
+                    
+                    // 安全地检查new_routes属性
+                    if (result.new_routes && result.new_routes.length > 0) {
+                        message += `\n已添加新路由：${result.new_routes.join(', ')}`;
+                    }
+                    
+                    alert(message);
+                    
+                    if (result.status !== "error") {
+                        location.reload();
+                    }
+                } else {
+                    const error = await response.text();
+                    alert('刷新失败: ' + error);
+                }
+            } catch (error) {
+                alert('刷新失败: ' + error);
+            } finally {
+                refreshButton.classList.remove('refreshing');
+            }
+        }
+
+        // 初始化所有tippy提示
+        function initTippy() {
+            tippy('.upload-button', {
+                theme: 'light',
+                placement: 'bottom',
+                arrow: true,
+                animation: 'scale'
+            });
+            
+            tippy('.refresh-button', {
+                theme: 'light',
+                placement: 'bottom',
+                arrow: true,
+                animation: 'scale'
+            });
+        }
+    </script>
+</body>
+</html> 

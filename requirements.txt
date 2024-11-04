@@ -1,0 +1,43 @@
+# Web框架和核心依赖
+fastapi>=0.68.0,<1.0.0
+uvicorn>=0.15.0,<1.0.0
+python-multipart>=0.0.5  # 用于文件上传
+aiofiles>=0.7.0  # 异步文件操作
+requests>=2.26.0,<3.0.0  # HTTP请求
+pydantic>=1.8.2,<2.0.0  # FastAPI数据验证
+
+# 数据处理
+numpy>=1.21.0,<2.0.0  # 数值计算
+pandas>=1.3.0,<2.0.0  # 数据处理和Excel文件支持
+openpyxl>=3.0.7  # Excel文件支持
+xlrd>=2.0.1  # Excel文件读取（旧格式）
+
+# 文件处理
+python-docx>=0.8.11  # 生成Word文档
+reportlab>=3.6.12  # 生成PDF文件
+pdf2image>=1.16.0  # 将PDF转换为图片
+markdown2>=2.4.4  # 将Markdown转换为HTML
+imgkit>=1.2.2  # 将HTML转换为图片（需要安装wkhtmltopdf）
+
+# 工具和辅助库
+python-dateutil>=2.8.2  # 日期处理
+pytz>=2021.3  # 时区支持
+
+# 测试和开发工具
+pytest>=6.2.5,<7.0.0  # 测试框架
+pluggy>=1.0.0  # pytest插件管理
+iniconfig>=1.1.1  # pytest配置
+watchdog>=2.1.6  # 文件监控
+colorama>=0.4.6  # 终端颜色支持
+certifi>=2024.8.30  # SSL证书
+charset-normalizer>=2.0.0,<3.0.0  # 字符集支持
+h11>=0.12.0  # HTTP/1.1协议支持
+httpcore>=0.13.7  # HTTP核心库
+rfc3986>=1.5.0  # URL解析
+six>=1.16.0  # Python 2和3兼容
+sniffio>=1.3.1  # 异步IO支持
+atomicwrites>=1.4.1  # 原子写入
+attrs>=21.2.0  # 属性管理
+setuptools>=57.5.0  # 包管理
+toml>=0.10.2  # TOML文件支持
+typing_extensions>=3.10.0  # 类型扩展
