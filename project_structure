@@ -1,7 +1,0 @@
-/cloud_functions
-    /get_random_xlsx_line
-        /xlsx_files/
-        function.py
-        readme.md
-    main.py
-    requirements.txt 
