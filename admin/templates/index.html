@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API测试工具</title>
+    <link rel="icon" type="image/svg+xml" href="/static/logo.svg">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .left-panel {
+            flex: 1;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .right-panel {
+            flex: 2;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .function-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .function-btn {
+            padding: 15px;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            position: relative;
+        }
+        .function-btn:hover {
+            background: #e0e0e0;
+        }
+        .function-btn.active {
+            background: #4CAF50;
+            color: white;
+            border-color: #45a049;
+        }
+        .function-actions {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+            gap: 5px;
+        }
+        .function-btn:hover .function-actions {
+            display: flex;
+        }
+        .edit-button, .delete-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+            font-size: 12px;
+        }
+        .edit-button {
+            background: #2196F3;
+        }
+        .edit-button:hover {
+            background: #1976D2;
+        }
+        .delete-button {
+            background: #f44336;
+        }
+        .delete-button:hover {
+            background: #d32f2f;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        pre {
+            background: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .response {
+            margin-top: 20px;
+        }
+        .function-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .function-desc {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .help-icon {
+            font-size: 14px;
+            color: #666;
+            cursor: help;
+            margin-left: 8px;
+            border: 1px solid #666;
+            border-radius: 50%;
+            padding: 0 6px;
+        }
+        .header-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .icon-button {
+            width: 28px;
+            height: 28px;
+            padding: 0;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .upload-button {
+            background: #2196F3;  /* 蓝色背景 */
+            border: none;
+        }
+        .upload-button:hover {
+            background: #1976D2;
+        }
+        .upload-button .plus-icon {
+            color: white;
+        }
+        .add-button {
+            background: #4CAF50;  /* 绿色背景 */
+            border: none;
+        }
+        .add-button:hover {
+            background: #45a049;
+        }
+        .add-button .plus-icon {
+            color: white;
+        }
+        .refresh-button {
+            background: #FF5722;  /* 橙色背景 */
+            border: none;
+        }
+        .refresh-button:hover {
+            background: #F4511E;
+        }
+        .refresh-button .refresh-icon {
+            color: white;
+        }
+        .plus-icon {
+            font-size: 20px;
+            line-height: 20px;
+        }
+        .refresh-icon {
+            font-size: 16px;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .refreshing {
+            animation: spin 1s linear infinite;
+        }
+        .param-input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+        .param-input label {
+            min-width: 100px;
+            margin: 0;
+            font-weight: bold;
+            text-align: right;
+        }
+        .param-input input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #paramsContainer {
+            margin-top: 5px;
+        }
+        /* 添加参数名称的样式 */
+        .param-name {
+            cursor: help;
+            border-bottom: 1px dashed #666;
+        }
+        /* 新增函数对话框样式 */
+        .new-function-dialog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .new-function-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+        }
+        .param-list {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+        .param-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .param-item input, .param-item select {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .param-item button {
+            padding: 8px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .add-param-button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            min-width: 90px;
+            height: 40px;
+            font-size: 15px;
+            width: 100%;
+            margin: 0 !important;
+        }
+        .add-param-button:hover {
+            background: #1976D2;
+        }
+        .dialog-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .dialog-buttons button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .dialog-buttons button:first-child {
+            background: #4CAF50;
+            color: white;
+        }
+        .dialog-buttons button:last-child {
+            background: #f44336;
+            color: white;
+        }
+        .file-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .tab-button {
+            padding: 8px 16px;
+            border: none;
+            background: #f0f0f0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .tab-button.active {
+            background: #2196F3;
+            color: white;
+        }
+        .file-content {
+            flex: 1;
+            overflow: auto;
+        }
+        .file-editor {
+            width: 100%;
+            height: 400px;
+            font-family: monospace;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .dialog-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .file-list {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+        }
+        .file-list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-list-title {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .file-list-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .file-item:last-child {
+            border-bottom: none;
+        }
+        .file-item-name {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .file-item-actions {
+            display: flex;
+            gap: 5px;
+        }
+        .file-item-button {
+            padding: 4px 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            color: white;
+        }
+        .file-item-button.delete {
+            background: #f44336;
+        }
+        .file-item-button.delete:hover {
+            background: #d32f2f;
+        }
+        .file-upload {
+            display: none;
+        }
+        /* 编辑对话框悬浮弹窗样式 */
+        .edit-dialog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .edit-dialog-content {
+            display: flex;
+            flex-direction: row;
+            width: 90vw;
+            height: 90vh;
+            max-width: 1200px;
+            max-height: 90vh;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+            overflow: hidden;
+            position: relative;
+        }
+        .edit-dialog-close {
+            position: absolute;
+            top: 4px;
+            right: 24px;
+            font-size: 22px;
+            color: #888;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            transition: color 0.2s;
+        }
+        .edit-dialog-close:hover {
+            color: #f44336;
+        }
+        .file-list-panel {
+            width: 240px;
+            border-right: 1px solid #eee;
+            background: #fafafa;
+            display: flex;
+            flex-direction: column;
+        }
+        .file-list-title {
+            padding: 10px 0 10px 10px;
+            font-weight: bold;
+            border-bottom: 1px solid #eee;
+        }
+        .file-list-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+        .file-item {
+            cursor: pointer;
+            padding: 8px 10px;
+            border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: none;
+            transition: background 0.2s;
+        }
+        .file-item.active {
+            background: #e3f2fd;
+        }
+        .file-item-name {
+            flex: 1;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .file-item-button.delete {
+            background: #f44336;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 12px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+        .file-item-button.delete:hover {
+            background: #d32f2f;
+        }
+        .add-param-button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .add-param-button:hover {
+            background: #45a049;
+        }
+        .file-upload {
+            display: none;
+        }
+        .file-content-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 24px 24px 0 24px;
+            min-width: 0;
+        }
+        #current-file-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        #file-content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        .file-editor {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            font-family: monospace;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            font-size: 14px;
+            line-height: 1.5;
+            box-sizing: border-box;
+        }
+        .file-editor:focus {
+            outline: none;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+        }
+        .dialog-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+            padding-bottom: 24px;
+        }
+        /* 文件树结构样式（含图标） */
+        .file-tree {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .file-tree-folder, .file-tree-file {
+            display: flex;
+            align-items: center;
+        }
+        .file-tree-folder {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 4px 0 4px 16px;
+            user-select: none;
+        }
+        .file-tree-folder .folder-arrow {
+            display: inline-block;
+            width: 16px;
+            text-align: center;
+            margin-right: 2px;
+            font-size: 12px;
+            transition: transform 0.2s;
+        }
+        .file-tree-folder.expanded .folder-arrow {
+            transform: rotate(90deg);
+        }
+        .file-tree-icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        .file-tree-file {
+            cursor: pointer;
+            padding: 4px 0 4px 32px;
+        }
+        .file-tree-file.active {
+            background: #e3f2fd;
+        }
+        .file-tree-file .file-item-name {
+            flex: 1;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .file-tree-file .file-item-button.delete {
+            margin-left: 8px;
+        }
+        .file-list-back {
+            padding: 4px 0 4px 10px;
+            cursor: pointer;
+            color: #2196F3;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 4px;
+        }
+        .file-list-back:hover {
+            text-decoration: underline;
+        }
+        #file-list-buttons {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>API测试工具</h1>
+    <div class="container">
+        <div class="left-panel">
+            <div class="panel-header">
+                <h2>可用函数</h2>
+                <div class="header-buttons">
+                    <button class="icon-button add-button" 
+                            onclick="showNewFunctionDialog()" 
+                            data-tippy-content="新增函数">
+                        <span class="plus-icon">+</span>
+                    </button>
+                    <button class="icon-button upload-button" 
+                            onclick="uploadFunction()" 
+                            data-tippy-content="上传新函数">
+                        <span class="plus-icon">+</span>
+                    </button>
+                    <button class="icon-button refresh-button" 
+                            onclick="refreshFunctions()" 
+                            data-tippy-content="刷新函数列表和依赖">
+                        <span class="refresh-icon">↻</span>
+                    </button>
+                    <button class="icon-button" style="background:#FF9800;" onclick="window.location.href='/admin/call_stats'" data-tippy-content="调用监控面板">
+                        <span class="plus-icon" style="font-size:18px;">📊</span>
+                    </button>
+                </div>
+            </div>
+            <div class="function-list" id="functionSelector">
+                <!-- 函数列表将通过JS动态添加 -->
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="input-group">
+                <label>请求方法:</label>
+                <select id="method">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>URL:</label>
+                <input type="text" id="url" placeholder="输入请求URL">
+            </div>
+            <div class="input-group" id="paramsGroup">
+                <label>参数:</label>
+                <div id="paramsContainer">
+                    <!-- 参数输入框将在这里动态添加 -->
+                </div>
+            </div>
+            <div class="input-group" id="bodyGroup">
+                <label>请求体 (JSON):</label>
+                <textarea id="body" rows="5" placeholder='{"key": "value"}'></textarea>
+            </div>
+            <button onclick="sendRequest()">发送请求</button>
+            <div class="response">
+                <h3>响应结果:</h3>
+                <pre id="response"></pre>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="functionUpload" webkitdirectory directory multiple style="display: none" onchange="handleFunctionUpload(this.files)">
+
+    <script>
+        // 修改函数配置
+        let functionConfigs = {
+            'functions': {
+                method: 'GET',
+                baseUrl: 'http://127.0.0.1:8000/functions',
+                defaultParams: '',
+                description: '获取所有可用函数列表'
+            }
+        };
+
+        // 页面加载时初始化，包括加载apps中的函数
+        window.onload = async function() {
+            try {
+                // 初始化所有tippy提示
+                initTippy();
+
+                // 获取函数列表
+                const response = await fetch('/functions');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                // 重置配置
+                functionConfigs = {
+                    'functions': {
+                        method: 'GET',
+                        baseUrl: 'http://127.0.0.1:8000/functions',
+                        defaultParams: '',
+                        description: '获取所有可用函数列表'
+                    }
+                };
+                
+                // 添加函数到配置中
+                if (data.functions && Array.isArray(data.functions)) {
+                    data.functions.forEach(func => {
+                        if (func.name && func.url && func.method) {
+                            functionConfigs[func.name] = {
+                                method: func.method,
+                                baseUrl: `http://${window.location.hostname}:${window.location.port}${func.url}`,
+                                description: func.description || '',
+                                parameters: func.parameters || []
+                            };
+                        }
+                    });
+                }
+
+                // 初始化函数选择器
+                initFunctionSelector();
+                
+                // 选择第一个函数
+                const firstFunction = Object.keys(functionConfigs)[0];
+                if (firstFunction) {
+                    selectFunction(firstFunction);
+                }
+            } catch (error) {
+                console.error('Error loading functions:', error);
+                alert('加载函数列表失败：' + error.message);
+            }
+        };
+
+        // 初始化函数选择器
+        function initFunctionSelector() {
+            const selector = document.getElementById('functionSelector');
+            Object.entries(functionConfigs).forEach(([key, config]) => {
+                const btn = document.createElement('div');
+                btn.className = 'function-btn';
+                btn.innerHTML = `
+                    <div class="function-name">${key}</div>
+                    <div class="function-desc">${config.description}</div>
+                    <div class="function-actions">
+                        <button class="edit-button" onclick="editFunction('${key}', event)">编辑</button>
+                        ${key !== 'functions' ? `<button class="delete-button" onclick="deleteFunction('${key}', event)">删除</button>` : ''}
+                    </div>
+                `;
+                btn.onclick = () => selectFunction(key);
+                selector.appendChild(btn);
+            });
+        }
+
+        // 选择函数
+        function selectFunction(functionName) {
+            // 更新按钮状态
+            document.querySelectorAll('.function-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.querySelector('.function-name').textContent === functionName) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // 获取函数配置
+            const config = functionConfigs[functionName];
+            
+            // 更新表单
+            document.getElementById('method').value = config.method;
+            document.getElementById('url').value = config.baseUrl;
+            document.getElementById('body').value = '';
+
+            // 清除响应结果
+            document.getElementById('response').textContent = '';
+
+            // 更新参数输入区域
+            updateParamsInput(functionName);
+
+            // 如果是GET请求，隐藏请求体
+            const bodyGroup = document.getElementById('bodyGroup');
+            bodyGroup.style.display = config.method === 'GET' ? 'none' : 'block';
+        }
+
+        // 添加参数输入框管理
+        function updateParamsInput(functionName) {
+            const paramsContainer = document.getElementById('paramsContainer');
+            paramsContainer.innerHTML = '';
+
+            const config = functionConfigs[functionName];
+            if (config.parameters) {
+                config.parameters.forEach(param => {
+                    const paramDiv = document.createElement('div');
+                    paramDiv.className = 'param-input';
+                    paramDiv.innerHTML = `
+                        <label for="param-${param.name}">
+                            <span class="param-name" data-tippy-content="${param.description}">${param.name}</span>:
+                        </label>
+                        <input type="text" 
+                               id="param-${param.name}" 
+                               placeholder="${param.description}"
+                               value="${param.default || ''}"
+                               onchange="updateUrlWithParams('${functionName}')" />
+                    `;
+                    paramsContainer.appendChild(paramDiv);
+                    
+                    // 初始化参数名称的提示
+                    tippy('.param-name', {
+                        theme: 'light',
+                        placement: 'top',
+                        arrow: true,
+                        animation: 'scale'
+                    });
+                });
+                // 初始化时触发一次URL更新
+                updateUrlWithParams(functionName);
+            }
+        }
+
+        // 更新URL中的参数
+        function updateUrlWithParams(functionName) {
+            const baseUrl = functionConfigs[functionName].baseUrl;
+            const params = new URLSearchParams();
+
+            // 获取所有参数值
+            const paramInputs = document.querySelectorAll('.param-input input');
+            paramInputs.forEach(input => {
+                if (input.value) {
+                    params.append(input.id.replace('param-', ''), input.value);
+                }
+            });
+
+            // 更新URL输入框
+            const paramsString = params.toString();
+            document.getElementById('url').value = paramsString ? 
+                `${baseUrl}?${paramsString}` : baseUrl;
+        }
+
+        // 修改发送请求的逻辑
+        async function sendRequest() {
+            const method = document.getElementById('method').value;
+            const url = document.getElementById('url').value;
+            const body = document.getElementById('body').value;
+
+            try {
+                const options = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                };
+
+                if (method !== 'GET' && body) {
+                    options.body = body;
+                }
+
+                const response = await fetch(url, options);
+                const data = await response.json();
+                
+                // 显示格式化后的响应
+                document.getElementById('response').textContent = JSON.stringify(data, null, 4);
+            } catch (error) {
+                document.getElementById('response').textContent = `Error: ${error.message}`;
+            }
+        }
+
+        async function uploadFunction() {
+            document.getElementById('functionUpload').click();
+        }
+
+        async function handleFunctionUpload(files) {
+            const formData = new FormData();
+            
+            // 检查是否选择了文件
+            if (files.length === 0) {
+                alert('请选择要上传的函数文件！');
+                return;
+            }
+
+            // 检查文件结构
+            const fileNames = Array.from(files).map(file => file.webkitRelativePath);
+            const functionName = fileNames[0].split('/')[0];
+            
+            // 检查必需文件
+            const requiredFiles = [
+                `${functionName}/config.json`,
+                `${functionName}/function.py`,
+                `${functionName}/intro.md`
+            ];
+            
+            const missingFiles = requiredFiles.filter(required => 
+                !fileNames.some(name => name.endsWith(required))
+            );
+            
+            if (missingFiles.length > 0) {
+                alert(`缺少必需文件：\n${missingFiles.join('\n')}`);
+                return;
+            }
+
+            // 添加所有文件到 FormData
+            for (let file of files) {
+                formData.append('files', file, file.webkitRelativePath);
+            }
+
+            try {
+                const response = await fetch('/admin/upload_function', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    alert('函数上传成功！');
+                    // 刷新函数列表
+                    await refreshFunctions();
+                } else {
+                    const errorMessage = result.detail || JSON.stringify(result);
+                    alert(`上传失败: ${errorMessage}`);
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                alert(`上传失败: ${error.message || '未知错误'}`);
+            }
+        }
+
+        async function refreshFunctions() {
+            const refreshButton = document.querySelector('.refresh-icon');
+            refreshButton.classList.add('refreshing');
+
+            try {
+                const response = await fetch('/admin/refresh_functions');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const result = await response.json();
+                
+                if (result.status === "success") {
+                    let message = result.message || '刷新完成';
+                    
+                    if (result.new_deps && result.new_deps.length > 0) {
+                        message += `\n已安装新依赖：${result.new_deps.join(', ')}`;
+                    }
+                    
+                    if (result.new_routes && result.new_routes.length > 0) {
+                        message += `\n已添加新路由：${result.new_routes.join(', ')}`;
+                    }
+                    
+                    alert(message);
+                    location.reload();
+                } else {
+                    throw new Error(result.message || '刷新失败');
+                }
+            } catch (error) {
+                console.error('Error refreshing functions:', error);
+                alert('刷新失败: ' + error.message);
+            } finally {
+                refreshButton.classList.remove('refreshing');
+            }
+        }
+
+        // 初始化所有tippy提示
+        function initTippy() {
+            tippy('.add-button', {
+                theme: 'light',
+                placement: 'bottom',
+                arrow: true,
+                animation: 'scale'
+            });
+            tippy('.upload-button', {
+                theme: 'light',
+                placement: 'bottom',
+                arrow: true,
+                animation: 'scale'
+            });
+            tippy('.refresh-button', {
+                theme: 'light',
+                placement: 'bottom',
+                arrow: true,
+                animation: 'scale'
+            });
+            tippy('.icon-button[data-tippy-content="调用监控面板"]', {
+                theme: 'light',
+                placement: 'bottom',
+                arrow: true,
+                animation: 'scale'
+            });
+        }
+
+        async function editFunction(functionName, event) {
+            event.stopPropagation(); // 阻止事件冒泡
+            try {
+                // 获取函数文件内容和文件列表
+                const response = await fetch(`/admin/get_function_files/${functionName}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const files = await response.json();
+                // 构建根目录文件和子目录树
+                const coreFiles = [
+                    { name: 'function.py', label: 'function.py', isFile: true, path: 'function.py' },
+                    { name: 'config.json', label: 'config.json', isFile: true, path: 'config.json' },
+                    { name: 'intro.md', label: 'intro.md', isFile: true, path: 'intro.md' }
+                ];
+                // 解析other_files，分离根文件和子目录
+                let otherFiles = (files.other_files || []).map(f => f.replace(/\\/g, '/'));
+                let otherDirs = (files.other_dirs || []).map(d => d.replace(/\\/g, '/'));
+                let rootOtherFiles = otherFiles.filter(f => !f.includes('/')).map(f => ({ name: f, label: f, isFile: true, path: f }));
+                let rootOtherDirs = otherDirs.filter(d => !d.includes('/')).map(d => ({ name: d, label: d, isFile: false, path: d }));
+                let subOtherFiles = otherFiles.filter(f => f.includes('/'));
+                let subOtherDirs = otherDirs.filter(d => d.includes('/'));
+                // 递归构建子目录树
+                function buildTree(paths) {
+                    const root = {};
+                    for (const relPath of paths) {
+                        const parts = relPath.split('/');
+                        let node = root;
+                        for (let i = 0; i < parts.length; i++) {
+                            const part = parts[i];
+                            if (!node[part]) {
+                                node[part] = (i === parts.length - 1)
+                                    ? { __file: true, path: relPath }
+                                    : {};
+                            }
+                            node = node[part];
+                        }
+                    }
+                    return root;
+                }
+                const otherTree = buildTree(subOtherFiles);
+                // 文件类型图标
+                function getFileIcon(name) {
+                    const ext = name.split('.').pop().toLowerCase();
+                    if (["png","jpg","jpeg","svg"].includes(ext)) return '🖼️';
+                    if (["md","txt","json","yaml","yml","csv","log","py","env"].includes(ext)) return '📄';
+                    return '📄';
+                }
+                // 递归查找当前目录的子树
+                function getSubTree(tree, dir) {
+                    if (!dir) return tree;
+                    const parts = dir.split('/');
+                    let node = tree;
+                    for (const part of parts) {
+                        if (part && node[part]) node = node[part];
+                        else return {};
+                    }
+                    return node;
+                }
+                // 渲染文件树HTML（仅当前目录）
+                function renderTree(node, parentPath = '', currentDir = '', skipRoot = false) {
+                    let html = '';
+                    if (!skipRoot) {
+                        html += '<ul class="file-tree">';
+                        const items = [];
+                        // 收集当前目录下的文件和文件夹
+                        if (parentPath === currentDir && node.__rootFiles) {
+                             node.__rootFiles.forEach(f => {
+                                 items.push({ type: 'file', name: f.name, path: f.path, label: f.label });
+                             });
+                         }
+                        for (const key in node) {
+                            if (key === '__file' || key === '__rootFiles') continue;
+                            const value = node[key];
+                            const fullPath = parentPath ? parentPath + '/' + key : key;
+                            if (value.__file) {
+                                if (parentPath === currentDir) {
+                                    items.push({ type: 'file', name: key, path: fullPath });
+                                }
+                            } else {
+                                if (parentPath === currentDir) {
+                                    items.push({ type: 'folder', name: key, path: fullPath });
+                                }
+                            }
+                        }
+                        // 排序：文件夹在前，然后按名称排序
+                        items.sort((a, b) => {
+                            if (a.type === 'folder' && b.type !== 'folder') return -1;
+                            if (a.type !== 'folder' && b.type === 'folder') return 1;
+                            return a.name.localeCompare(b.name);
+                        });
+                        // 渲染排序后的项目
+                        items.forEach(item => {
+                            if (item.type === 'folder') {
+                                 html += `<li>
+                                     <div class="file-tree-folder" data-path="${item.path}">
+                                         <span class="file-tree-icon">📁</span>${item.name}
+                                     </div>
+                                 </li>`;
+                            } else {
+                                 html += `<li class="file-tree-file" data-path="${item.path}">
+                                     <span class="file-tree-icon">${getFileIcon(item.name)}</span>
+                                     <span class="file-item-name">${item.name}</span>
+                                     <button class="file-item-button delete" onclick="deleteFunctionFile('${functionName}', '${item.path}', event)">删除</button>
+                                 </li>`;
+                            }
+                        });
+                        html += '</ul>';
+                    }
+                    // 递归渲染子内容（不管 skipRoot）
+                    for (const key in node) {
+                        if (key === '__file' || key === '__rootFiles') continue;
+                        const value = node[key];
+                        if (!value.__file) {
+                            html += renderTree(value, parentPath ? parentPath + '/' + key : key, currentDir, false);
+                        }
+                    }
+                    return html;
+                }
+                // 当前浏览目录
+                let currentDir = '';
+                // 默认选中第一个文件
+                let currentFile = coreFiles[0].path;
+                // 创建对话框
+                const dialog = document.createElement('div');
+                dialog.className = 'edit-dialog';
+                function renderFileList() {
+                    let html = '';
+                    if (currentDir) {
+                        html += `<div class="file-list-back" onclick="goUpDir()">← 返回上级目录</div>`;
+                    }
+                    // 根目录下所有文件和文件夹
+                    if (currentDir === '') {
+                        const seen = new Map();
+                        const allRootItems = [...coreFiles, ...rootOtherFiles, ...rootOtherDirs].filter(item => {
+                            const key = item.name;
+                            if (!seen.has(key)) {
+                                seen.set(key, item);
+                            } else if (!item.isFile) {
+                                seen.set(key, item);
+                            }
+                            return true;
+                        });
+                        allRootItems.sort((a, b) => {
+                           if (a.isFile && !b.isFile) return 1;
+                           if (!a.isFile && b.isFile) return -1;
+                           return a.name.localeCompare(b.name);
+                        });
+                        html += allRootItems.map(f => {
+                            const isCore = ['function.py', 'config.json', 'intro.md'].includes(f.name);
+                            if (f.isFile) {
+                                return `<div class="file-item${f.path === currentFile ? ' active' : ''}" data-path="${f.path}">
+                                    <span class="file-tree-icon">${getFileIcon(f.name)}</span>
+                                    <span class="file-item-name">${f.label}</span>
+                                    ${!isCore ? `<button class="file-item-button delete" onclick="deleteFunctionFile('${functionName}', '${f.path}', event)">删除</button>` : ''}
+                                </div>`;
+                            } else {
+                                // 文件夹也用 file-item，保证和文件对齐
+                                return `<div class="file-item" data-path="${f.path}">
+                                    <span class="file-tree-icon">📁</span>
+                                    <span class="file-item-name">${f.name}</span>
+                                    <button class="file-item-button delete" onclick="deleteFunctionFile('${functionName}', '${f.path}', event)">删除</button>
+                                </div>`;
+                            }
+                        }).join('');
+                    }
+                    // 渲染当前目录下的子树内容（只有在非根目录时才递归渲染）
+                    if (currentDir !== '') {
+                        const subTree = getSubTree(otherTree, currentDir);
+                        html += renderTree(subTree, currentDir, currentDir, false);
+                    }
+                    return html;
+                }
+                dialog.innerHTML = `
+                    <div class="edit-dialog-content">
+                        <button class="edit-dialog-close" onclick="closeEditDialog()">×</button>
+                        <div class="file-list-panel">
+                            <div class="file-list-title">文件列表</div>
+                            <div class="file-list-content" id="file-list-content">
+                                ${renderFileList()}
+                            </div>
+                            <div id="file-list-buttons">
+                                ${renderFileListButtons()}
+                            </div>
+                        </div>
+                        <div class="file-content-panel">
+                            <div id="current-file-title">${currentFile}</div>
+                            <div id="file-content-area"></div>
+                            <div class="dialog-buttons">
+                                <button onclick="saveCurrentFile('${functionName}')">保存</button>
+                                <button onclick="closeEditDialog()">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                // 文件上传输入框
+                const fileUpload = document.createElement('input');
+                fileUpload.type = 'file';
+                fileUpload.id = 'file-upload';
+                fileUpload.className = 'file-upload';
+                fileUpload.onchange = (e) => {
+                    const file = e.target.files[0];
+                    let uploadPath = file.name;
+                    if (currentDir) {
+                        uploadPath = currentDir + '/' + file.name;
+                    }
+                    uploadFunctionFile(functionName, file, uploadPath);
+                };
+                dialog.appendChild(fileUpload);
+                document.body.appendChild(dialog);
+                // 点击遮罩关闭
+                dialog.addEventListener('click', (e) => {
+                    if (e.target === dialog) {
+                        closeEditDialog();
+                    }
+                });
+                // 进入/返回目录逻辑
+                window.goUpDir = function() {
+                    if (!currentDir) return;
+                    const parts = currentDir.split('/');
+                    parts.pop();
+                    currentDir = parts.join('/');
+                    updateFileList();
+                };
+                function updateFileList() {
+                    const list = dialog.querySelector('#file-list-content');
+                    list.innerHTML = renderFileList();
+                    // 动态刷新按钮区域
+                    const btnDiv = dialog.querySelector('#file-list-buttons');
+                    if (btnDiv) btnDiv.innerHTML = renderFileListButtons();
+                    initTreeEvents(); // 确保每次都绑定事件
+                }
+                function renderFileListButtons() {
+                    let html = '';
+                    html += `<button class="add-param-button" onclick="showNewItemDialog('file', '${functionName}')">新建文件</button>`;
+                    html += `<button class="add-param-button" onclick="document.getElementById('file-upload').click()">上传文件</button>`;
+                    if (currentDir === '') {
+                        html += `<button class="add-param-button" onclick="showNewItemDialog('folder', '${functionName}')">新建文件夹</button>`;
+                        html += `<div></div>`; // 占位，保持两列
+                    }
+                    return html;
+                }
+                // 文件树交互
+                function initTreeEvents() {
+                    // 文件点击 (同时绑定 .file-item 和 .file-tree-file)
+                    dialog.querySelectorAll('.file-item, .file-tree-file').forEach(item => {
+                        item.onclick = (e) => {
+                            // 防止点击删除按钮时触发
+                            if (e.target.tagName.toLowerCase() === 'button') return;
+                            showFileContent(item.getAttribute('data-path'));
+                        };
+                    });
+                    // 文件夹双击进入（根目录和子目录都支持）
+                    dialog.querySelectorAll('.file-item').forEach(item => {
+                        // 判断是否为文件夹（根目录下的文件夹没有 isFile 属性，图标为📁）
+                        const icon = item.querySelector('.file-tree-icon');
+                        if (icon && icon.textContent.includes('📁')) {
+                            item.ondblclick = function(e) {
+                                e.stopPropagation();
+                                currentDir = this.getAttribute('data-path');
+                                updateFileList();
+                            };
+                        }
+                    });
+                    dialog.querySelectorAll('.file-tree-folder').forEach(folder => {
+                        folder.onclick = null;
+                        folder.ondblclick = function(e) {
+                            e.stopPropagation();
+                            currentDir = this.getAttribute('data-path');
+                            updateFileList();
+                        };
+                    });
+                }
+                // 文件内容显示
+                async function showFileContent(filePath) {
+                    // 判断是否为文件夹（根目录和子目录都判断）
+                    const isFolder = rootOtherDirs.some(d => d.path === filePath) || (typeof subOtherDirs !== 'undefined' && subOtherDirs.some(d => d === filePath));
+                    if (isFolder) {
+                        // 是文件夹，不请求内容接口
+                        return;
+                    }
+                    currentFile = filePath;
+                    document.getElementById('current-file-title').textContent = filePath;
+                    // 高亮
+                    dialog.querySelectorAll('.file-item').forEach(item => {
+                        item.classList.toggle('active', item.getAttribute('data-path') === filePath);
+                    });
+                    dialog.querySelectorAll('.file-tree-file').forEach(item => {
+                         item.classList.toggle('active', item.getAttribute('data-path') === filePath);
+                    });
+                    // 获取内容
+                    const ext = filePath.split('.').pop().toLowerCase();
+                    const contentArea = document.getElementById('file-content-area');
+                    contentArea.innerHTML = '';
+                    if (["png","jpg","jpeg","svg"].includes(ext)) {
+                        console.log('File is an image, attempting to load via img.src'); // Log 2
+                        // 图片预览
+                        const img = document.createElement('img');
+                        img.src = `/admin/get_function_file_content/${functionName}?file_path=${encodeURIComponent(filePath)}`;
+                        img.style.maxWidth = '100%';
+                        img.style.maxHeight = '70vh';
+                        img.style.border = '1px solid #eee';
+                        img.style.background = '#fafafa';
+                        img.onerror = () => { console.error('Image failed to load', img.src); }; // Log 3
+                        img.onload = () => { console.log('Image loaded successfully', img.src); }; // Log 4
+                        contentArea.appendChild(img);
+                    } else {
+                        console.log('File is text or other type, attempting to fetch content'); // Log 5
+                        // 文本内容
+                        // 这里不再尝试从初始加载的files对象中获取，直接fetch，简化逻辑
+                        // let content = files[filePath.split('/')[0]]; // REMOVED
+
+                        // If content is not found in the initial `files` object (which it won't be for subdirectory files)
+                        // it then tries to fetch the content from the backend.
+                        // if (content === undefined) { // MODIFIED
+                            const res = await fetch(`/admin/get_function_file_content/${functionName}?file_path=${encodeURIComponent(filePath)}`);
+                            console.log('Fetch response:', res); // Log 6
+                            if (res.ok) {
+                                console.log('Fetch successful'); // Log 7
+                                const data = await res.json();
+                                console.log('Fetched data:', data); // Log 8
+                                // !!! Ensure data has .content for text files !!!
+                                if (data.type === 'text' && data.content !== undefined) {
+                                     console.log('Setting text content to editor'); // Log 9
+                                    const textarea = document.createElement('textarea');
+                                    textarea.className = 'file-editor';
+                                    textarea.value = data.content || '';
+                                    textarea.id = 'file-editor-area';
+                                    contentArea.appendChild(textarea);
+                                } else {
+                                     console.error('Fetched data does not contain text content in expected format:', data); // Log 10
+                                     contentArea.textContent = '无法获取文件内容';
+                                }
+                            } else {
+                                console.error('Fetch failed:', res.status, res.statusText); // Log 11
+                                contentArea.textContent = `加载失败: ${res.status} ${res.statusText}`;
+                            }
+                        // } // REMOVED
+                        // Original textarea creation if content was found locally - this path is now removed
+                        // else {
+                        //     const textarea = document.createElement('textarea');
+                        //     textarea.className = 'file-editor';
+                        //     textarea.value = content || '';
+                        //     textarea.id = 'file-editor-area';
+                        //     contentArea.appendChild(textarea);
+                        // }
+                    }
+                }
+                // 初始化树事件
+                initTreeEvents();
+                // 保存当前文件
+                window.saveCurrentFile = async function(functionName) {
+                    const ext = currentFile.split('.').pop().toLowerCase();
+                    if (["png","jpg","jpeg","svg"].includes(ext)) {
+                        alert('图片文件不支持在线保存');
+                        return;
+                    }
+                    const textarea = document.getElementById('file-editor-area');
+                    if (!textarea) {
+                        alert('当前文件不可编辑');
+                        return;
+                    }
+                    const content = textarea.value;
+                    try {
+                        const res = await fetch(`/admin/save_function_file/${functionName}`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ file_path: currentFile, content })
+                        });
+                        const result = await res.json();
+                        alert(result.message);
+                    } catch (error) {
+                        alert('保存失败：' + error.message);
+                    }
+                };
+                // 首次显示第一个文件内容
+                showFileContent(currentFile);
+                // 新建文件夹/文件逻辑
+                window.showNewItemDialog = function(type, functionName) {
+                    const name = prompt(`请输入新${type === 'folder' ? '文件夹' : '文件'}名称：`);
+                    if (name === null || name.trim() === '') return;
+                    const fullPath = currentDir ? `${currentDir}/${name.trim()}` : name.trim();
+                    createNewItem(type, functionName, fullPath);
+                };
+                async function createNewItem(type, functionName, fullPath) {
+                    try {
+                        const res = await fetch(`/admin/create_function_item/${functionName}`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ type, path: fullPath })
+                        });
+                        let result;
+                        try {
+                            result = await res.json();
+                        } catch (e) {
+                            alert('服务器返回格式错误');
+                            return;
+                        }
+                        if (res.ok && result.status === 'success') {
+                            alert(result.message);
+                            // 重新获取完整的文件列表
+                            const response = await fetch(`/admin/get_function_files/${functionName}`);
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            const files = await response.json();
+                            // 更新文件树
+                            otherFiles = (files.other_files || []).map(f => f.replace(/\\/g, '/'));
+                            otherDirs = (files.other_dirs || []).map(d => d.replace(/\\/g, '/'));
+                            rootOtherFiles = otherFiles.filter(f => !f.includes('/')).map(f => ({ name: f, label: f, isFile: true, path: f }));
+                            rootOtherDirs = otherDirs.filter(d => !d.includes('/')).map(d => ({ name: d, label: d, isFile: false, path: d }));
+                            subOtherFiles = otherFiles.filter(f => f.includes('/'));
+                            subOtherDirs = otherDirs.filter(d => d.includes('/'));
+                            // 更新显示
+                            updateFileList();
+                        } else {
+                            alert(result.message || '新建失败');
+                        }
+                    } catch (error) {
+                        alert(`创建${type === 'folder' ? '文件夹' : '文件'}失败：` + error.message);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading function files:', error);
+                alert('加载函数文件失败：' + error.message);
+            }
+        }
+
+        function switchTab(button, fileType) {
+            // 更新按钮状态
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+            
+            // 显示对应的编辑器
+            document.querySelectorAll('.file-editor').forEach(editor => {
+                editor.style.display = 'none';
+            });
+            document.getElementById(`${fileType}-content`).style.display = 'block';
+        }
+
+        async function saveFunction(functionName) {
+            try {
+                const files = {
+                    function: document.getElementById('function-content').value,
+                    config: document.getElementById('config-content').value,
+                    intro: document.getElementById('intro-content').value
+                };
+                
+                const response = await fetch(`/admin/save_function/${functionName}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(files)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                alert(result.message);
+                
+                if (result.status === 'success') {
+                    closeEditDialog();
+                    await refreshFunctions();
+                }
+                
+            } catch (error) {
+                console.error('Error saving function:', error);
+                alert('保存函数失败：' + error.message);
+            }
+        }
+
+        function closeEditDialog() {
+            const dialog = document.querySelector('.edit-dialog');
+            if (dialog) {
+                dialog.remove();
+            }
+        }
+
+        // 新增函数相关函数
+        function showNewFunctionDialog() {
+            const dialog = document.createElement('div');
+            dialog.className = 'new-function-dialog';
+            dialog.innerHTML = `
+                <div class="new-function-content">
+                    <h2>新增函数</h2>
+                    <div class="form-group">
+                        <label for="function-name">函数名称:</label>
+                        <input type="text" id="function-name" placeholder="输入函数名称（使用小写字母和下划线）" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="function-description">函数描述:</label>
+                        <textarea id="function-description" placeholder="输入函数描述" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>输入参数:</label>
+                        <div id="input-params" class="param-list"></div>
+                        <button class="add-param-button" onclick="addParam('input')">添加输入参数</button>
+                    </div>
+                    <div class="form-group">
+                        <label>返回参数:</label>
+                        <div id="return-params" class="param-list"></div>
+                        <button class="add-param-button" onclick="addParam('return')">添加返回参数</button>
+                    </div>
+                    <div class="dialog-buttons">
+                        <button onclick="createFunction()">创建</button>
+                        <button onclick="closeNewFunctionDialog()">取消</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(dialog);
+
+            // 添加点击外部关闭对话框的功能
+            dialog.addEventListener('click', (e) => {
+                if (e.target === dialog) {
+                    closeNewFunctionDialog();
+                }
+            });
+
+            // 添加回车键提交功能
+            const functionNameInput = dialog.querySelector('#function-name');
+            const functionDescInput = dialog.querySelector('#function-description');
+            
+            functionNameInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    functionDescInput.focus();
+                }
+            });
+
+            functionDescInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    createFunction();
+                }
+            });
+
+            // 聚焦到函数名称输入框
+            setTimeout(() => {
+                functionNameInput.focus();
+            }, 100);
+        }
+
+        function closeNewFunctionDialog() {
+            const dialog = document.querySelector('.new-function-dialog');
+            if (dialog) {
+                dialog.remove();
+            }
+        }
+
+        function addParam(type) {
+            const container = document.getElementById(`${type}-params`);
+            const paramItem = document.createElement('div');
+            paramItem.className = 'param-item';
+            paramItem.innerHTML = `
+                <input type="text" placeholder="参数名称" class="param-name">
+                <select class="param-type">
+                    <option value="str">字符串 (str)</option>
+                    <option value="int">整数 (int)</option>
+                    <option value="float">浮点数 (float)</option>
+                    <option value="bool">布尔值 (bool)</option>
+                    <option value="list">列表 (list)</option>
+                    <option value="dict">字典 (dict)</option>
+                </select>
+                <button onclick="removeParam(this)">删除</button>
+            `;
+            container.appendChild(paramItem);
+        }
+
+        function removeParam(button) {
+            button.parentElement.remove();
+        }
+
+        async function createFunction() {
+            const functionName = document.getElementById('function-name').value.trim();
+            const description = document.getElementById('function-description').value.trim();
+            
+            if (!functionName) {
+                alert('请输入函数名称');
+                return;
+            }
+            
+            if (!/^[a-z][a-z0-9_]*$/.test(functionName)) {
+                alert('函数名称只能包含小写字母、数字和下划线，且必须以字母开头');
+                return;
+            }
+
+            // 收集输入参数
+            const inputParams = [];
+            document.querySelectorAll('#input-params .param-item').forEach(item => {
+                const name = item.querySelector('.param-name').value.trim();
+                const type = item.querySelector('.param-type').value;
+                if (name) {
+                    inputParams.push({ name, type });
+                }
+            });
+
+            // 收集返回参数
+            const returnParams = [];
+            document.querySelectorAll('#return-params .param-item').forEach(item => {
+                const name = item.querySelector('.param-name').value.trim();
+                const type = item.querySelector('.param-type').value;
+                if (name) {
+                    returnParams.push({ name, type });
+                }
+            });
+
+            // 生成函数模板
+            const functionTemplate = generateFunctionTemplate(functionName, inputParams, returnParams);
+            const configTemplate = generateConfigTemplate(functionName, description, inputParams, returnParams);
+            const introTemplate = generateIntroTemplate(functionName, description, inputParams, returnParams);
+
+            try {
+                const response = await fetch('/admin/create_function', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        function_name: functionName,
+                        files: {
+                            function: functionTemplate,
+                            config: configTemplate,
+                            intro: introTemplate
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                alert(result.message);
+                
+                if (result.status === 'success') {
+                    closeNewFunctionDialog();
+                    await refreshFunctions();
+                }
+            } catch (error) {
+                console.error('Error creating function:', error);
+                alert('创建函数失败：' + error.message);
+            }
+        }
+
+        function generateFunctionTemplate(functionName, inputParams, returnParams) {
+            const paramList = inputParams.map(p => `${p.name}: ${p.type}`).join(', ');
+            const returnType = returnParams.length === 1 ? returnParams[0].type : 'dict';
+            
+            let template = `def ${functionName}(${paramList}):\n`;
+            template += '    """\n';
+            template += `    ${functionName} 函数\n\n`;
+            template += '    参数:\n';
+            inputParams.forEach(p => {
+                template += `        ${p.name}: ${p.type} - 参数说明\n`;
+            });
+            template += '\n    返回:\n';
+            if (returnParams.length === 1) {
+                template += `        ${returnParams[0].type} - 返回值说明\n`;
+            } else {
+                returnParams.forEach(p => {
+                    template += `        ${p.name}: ${p.type} - 返回值说明\n`;
+                });
+            }
+            template += '    """\n\n';
+            template += '    # TODO: 实现函数逻辑\n';
+            
+            if (returnParams.length === 1) {
+                // 根据返回类型生成默认返回值
+                const returnType = returnParams[0].type;
+                let defaultValue = 'None';
+                if (returnType === 'str') {
+                    defaultValue = '""';
+                } else if (returnType === 'int') {
+                    defaultValue = '0';
+                } else if (returnType === 'float') {
+                    defaultValue = '0.0';
+                } else if (returnType === 'bool') {
+                    defaultValue = 'False';
+                } else if (returnType === 'list') {
+                    defaultValue = '[]';
+                } else if (returnType === 'dict') {
+                    defaultValue = '{}';
+                }
+                template += `    return ${defaultValue}  # 返回 ${returnType} 类型\n`;
+            } else {
+                template += '    return {\n';
+                returnParams.forEach(p => {
+                    // 根据返回类型生成默认值
+                    let defaultValue = 'None';
+                    if (p.type === 'str') {
+                        defaultValue = '""';
+                    } else if (p.type === 'int') {
+                        defaultValue = '0';
+                    } else if (p.type === 'float') {
+                        defaultValue = '0.0';
+                    } else if (p.type === 'bool') {
+                        defaultValue = 'False';
+                    } else if (p.type === 'list') {
+                        defaultValue = '[]';
+                    } else if (p.type === 'dict') {
+                        defaultValue = '{}';
+                    }
+                    template += `        "${p.name}": ${defaultValue},  # ${p.type} 类型\n`;
+                });
+                template += '    }\n';
+            }
+            
+            return template;
+        }
+
+        function generateConfigTemplate(functionName, description, inputParams, returnParams) {
+            const config = {
+                url: `/function/${functionName}`,
+                method: "GET",
+                description: description,
+                parameters: inputParams.map(p => ({
+                    name: p.name,
+                    type: p.type,
+                    required: true,
+                    description: "参数说明",
+                    default: ""
+                }))
+            };
+            return JSON.stringify(config, null, 4);
+        }
+
+        function generateIntroTemplate(functionName, description, inputParams, returnParams) {
+            let intro = `# ${functionName}\n\n`;
+            intro += `${description}\n\n`;
+            
+            if (inputParams.length > 0) {
+                intro += '## 输入参数\n\n';
+                inputParams.forEach(p => {
+                    intro += `- ${p.name} (${p.type}): 参数说明\n`;
+                });
+                intro += '\n';
+            }
+            
+            if (returnParams.length > 0) {
+                intro += '## 返回值\n\n';
+                if (returnParams.length === 1) {
+                    intro += `返回 ${returnParams[0].type} 类型：返回值说明\n`;
+                } else {
+                    returnParams.forEach(p => {
+                        intro += `- ${p.name} (${p.type}): 返回值说明\n`;
+                    });
+                }
+            }
+            
+            return intro;
+        }
+
+        // 添加删除函数的功能
+        async function deleteFunction(functionName, event) {
+            event.stopPropagation(); // 阻止事件冒泡
+            
+            if (!confirm(`确定要删除函数 "${functionName}" 吗？此操作不可恢复。`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/admin/delete_function/${functionName}`, {
+                    method: 'POST'
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                alert(result.message);
+                
+                if (result.status === 'success') {
+                    // 刷新函数列表
+                    await refreshFunctions();
+                }
+            } catch (error) {
+                console.error('Error deleting function:', error);
+                alert('删除函数失败：' + error.message);
+            }
+        }
+
+        async function uploadFunctionFile(functionName, file, uploadPath) {
+            if (!file) return;
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('relative_path', uploadPath || file.name);
+                const response = await fetch(`/admin/upload_function_file/${functionName}`, {
+                    method: 'POST',
+                    body: formData
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const result = await response.json();
+                alert(result.message);
+                if (result.status === 'success') {
+                    // 重新加载函数文件
+                    const editDialog = document.querySelector('.edit-dialog');
+                    if (editDialog) {
+                        editDialog.remove();
+                    }
+                    editFunction(functionName, { stopPropagation: () => {} });
+                }
+            } catch (error) {
+                console.error('Error uploading file:', error);
+                alert('上传文件失败：' + error.message);
+            }
+        }
+
+        async function deleteFunctionFile(functionName, filePath, event) {
+            event.stopPropagation();
+            
+            if (!confirm(`确定要删除文件 "${filePath}" 吗？此操作不可恢复。`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/admin/delete_function_file/${functionName}?file_path=${encodeURIComponent(filePath)}`, {
+                    method: 'DELETE'
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                alert(result.message);
+                
+                if (result.status === 'success') {
+                    // 重新加载函数文件
+                    const editDialog = document.querySelector('.edit-dialog');
+                    if (editDialog) {
+                        editDialog.remove();
+                    }
+                    editFunction(functionName, { stopPropagation: () => {} });
+                }
+            } catch (error) {
+                console.error('Error deleting file:', error);
+                alert('删除文件失败：' + error.message);
+            }
+        }
+    </script>
+</body>
+</html> 

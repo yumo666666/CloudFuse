@@ -594,3 +594,146 @@
 2024-11-04 03:11:45,265 - utils.logger - INFO - Calling function: get_random_xlsx_line
 2024-11-04 05:31:20,043 - utils.logger - INFO - Checking dependencies on startup...
 2024-11-04 05:31:20,047 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '‰æùËµñÁéØÂ¢ÉÊ£ÄÊü•ÂÆåÊàê', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:35:43,391 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 12:35:43,393 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:37:07,969 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 12:37:16,868 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 12:37:16,871 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:37:16,894 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:37:22,084 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 12:37:27,885 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 12:37:40,491 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 12:37:40,494 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:37:44,788 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:37:56,113 - utils.logger - INFO - Calling function: example_function
+2025-05-18 12:40:08,694 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 12:40:08,696 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:40:32,823 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 12:40:36,077 - utils.logger - INFO - Calling function: hello_world
+2025-05-18 12:42:30,462 - utils.logger - INFO - Calling function: hello_world
+2025-05-18 12:47:00,514 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 12:47:00,517 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:49:21,292 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 12:49:21,295 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:50:43,375 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 12:50:43,377 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:51:52,087 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 12:51:52,089 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:57:35,091 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:58:11,976 - utils.logger - INFO - Calling function: cscscscs
+2025-05-18 12:58:11,976 - utils.logger - ERROR - Error calling function cscscscs: 400: Missing required parameter: sr
+2025-05-18 12:58:28,783 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 12:58:28,786 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:58:28,943 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 12:58:37,782 - utils.logger - INFO - Calling function: cscscscs
+2025-05-18 12:58:42,831 - utils.logger - INFO - Calling function: cscscscs
+2025-05-18 12:59:55,134 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 12:59:55,137 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 13:01:39,577 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 13:05:42,212 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 13:05:42,215 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 13:15:45,643 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 13:15:45,645 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 13:15:50,262 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 13:15:50,264 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 13:19:16,117 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 13:19:17,565 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0xa8 in position 11: invalid start byte
+2025-05-18 13:19:18,748 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 13:36:08,302 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0xa8 in position 11: invalid start byte
+2025-05-18 13:36:08,947 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 13:46:15,063 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 13:46:15,065 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 13:51:56,382 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 13:51:57,170 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0xa8 in position 11: invalid start byte
+2025-05-18 13:53:04,170 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 13:54:52,850 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 13:54:52,852 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:13:23,427 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 14:13:23,430 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:13:28,827 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 14:13:29,457 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0xa8 in position 11: invalid start byte
+2025-05-18 14:19:27,358 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 14:19:27,360 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:22:50,165 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 14:22:51,802 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0xa8 in position 11: invalid start byte
+2025-05-18 14:23:01,886 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 14:23:03,011 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 14:25:40,590 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 14:25:40,593 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:28:43,437 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 14:28:43,440 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:30:26,687 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 14:30:26,690 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:35:12,465 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 14:35:12,467 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:36:35,102 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 14:36:35,105 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:37:17,759 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:38:00,800 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 14:38:00,803 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:38:00,825 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 14:55:25,594 - utils.logger - ERROR - Error deleting function file: [WinError 5] æ‹æ¯∑√Œ °£: 'c:\\Users\\33012\\Desktop\\cloud_function\\apps\\get_random_xlsx_line\\cscs'
+2025-05-18 14:55:29,327 - utils.logger - ERROR - Error deleting function file: [WinError 5] æ‹æ¯∑√Œ °£: 'c:\\Users\\33012\\Desktop\\cloud_function\\apps\\get_random_xlsx_line\\xlsx_files'
+2025-05-18 14:57:04,350 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 14:57:04,354 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 15:00:17,297 - utils.logger - ERROR - Error getting file content: [Errno 13] Permission denied: 'c:\\Users\\33012\\Desktop\\cloud_function\\apps\\get_random_xlsx_line\\xlsx_files'
+2025-05-18 15:00:17,456 - utils.logger - ERROR - Error getting file content: [Errno 13] Permission denied: 'c:\\Users\\33012\\Desktop\\cloud_function\\apps\\get_random_xlsx_line\\xlsx_files'
+2025-05-18 15:00:19,425 - utils.logger - ERROR - Error getting file content: [Errno 13] Permission denied: 'c:\\Users\\33012\\Desktop\\cloud_function\\apps\\get_random_xlsx_line\\xlsx_files'
+2025-05-18 15:00:19,617 - utils.logger - ERROR - Error getting file content: [Errno 13] Permission denied: 'c:\\Users\\33012\\Desktop\\cloud_function\\apps\\get_random_xlsx_line\\xlsx_files'
+2025-05-18 15:00:49,420 - utils.logger - ERROR - Error getting file content: [Errno 13] Permission denied: 'c:\\Users\\33012\\Desktop\\cloud_function\\apps\\get_random_xlsx_line\\xlsx_files'
+2025-05-18 15:00:49,592 - utils.logger - ERROR - Error getting file content: [Errno 13] Permission denied: 'c:\\Users\\33012\\Desktop\\cloud_function\\apps\\get_random_xlsx_line\\xlsx_files'
+2025-05-18 15:04:50,530 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 15:04:51,677 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0xa8 in position 11: invalid start byte
+2025-05-18 15:13:30,211 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0xa8 in position 11: invalid start byte
+2025-05-18 15:13:30,780 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 15:49:50,775 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 15:50:06,277 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 15:50:09,771 - utils.logger - ERROR - Error getting file content: 'utf-8' codec can't decode byte 0x87 in position 10: invalid start byte
+2025-05-18 16:38:53,268 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 16:38:53,270 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:39:54,050 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:40:01,051 - utils.logger - INFO - Calling function: cs
+2025-05-18 16:40:01,051 - utils.logger - ERROR - Error calling function cs: 400: Missing required parameter: sr
+2025-05-18 16:45:53,544 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:46:39,744 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:48:30,645 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:49:05,182 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:49:09,029 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:50:47,487 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 16:50:47,489 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:50:51,530 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 16:50:51,533 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:51:21,530 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:51:32,972 - utils.logger - INFO - Calling function: cs
+2025-05-18 16:51:39,473 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:53:51,895 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 16:53:51,897 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:54:35,333 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:54:48,462 - utils.logger - INFO - Installed new dependencies: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 16:59:22,813 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 16:59:22,815 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 17:02:50,915 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 17:02:50,918 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 17:03:33,302 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 17:04:17,875 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 17:04:20,429 - utils.logger - INFO - Calling function: calculate
+2025-05-18 17:12:11,118 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 17:12:11,121 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 17:12:28,582 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 17:12:28,585 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 17:18:44,163 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 17:18:44,166 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}
+2025-05-18 17:19:03,305 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 17:19:05,562 - utils.logger - INFO - Calling function: example_function
+2025-05-18 17:19:07,810 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2025-05-18 17:19:09,948 - utils.logger - INFO - Calling function: hello_world
+2025-05-18 17:20:53,171 - utils.logger - INFO - Calling function: example_function
+2025-05-18 17:22:54,037 - utils.logger - INFO - Calling function: get_random_xlsx_line
+2025-05-18 17:22:55,620 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 17:22:56,023 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 17:22:56,345 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 17:22:57,081 - utils.logger - INFO - Calling function: echo_message
+2025-05-18 17:22:58,461 - utils.logger - INFO - Calling function: example_function
+2025-05-18 17:22:59,981 - utils.logger - INFO - Calling function: hello_world
+2025-05-18 17:57:40,226 - utils.logger - INFO - Checking dependencies on startup...
+2025-05-18 17:57:40,229 - utils.logger - INFO - Installed new dependencies on startup: {'status': 'success', 'message': '“¿¿µª∑æ≥ºÏ≤ÈÕÍ≥…', 'new_deps': [], 'conflicts': []}

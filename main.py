@@ -13,6 +13,7 @@ from typing import List, Dict
 import os
 import json
 import asyncio
+from datetime import datetime
 
 # 定义生命周期管理器
 @asynccontextmanager
@@ -31,7 +32,7 @@ async def lifespan(app: FastAPI):
     
     yield  # 这里是应用运行的地方
     
-    # 关闭时执���（如果需要）
+    # 关闭时执行（如果需要）
     # 清理代码可以放在这里
 
 # 使用生命周期管理器创建应用
@@ -123,7 +124,43 @@ async def call_function(function_name: str, request: Request):
                                  detail=f"Missing required parameter: {param_name}")
         
         # 调用函数
-        return func(**kwargs)
+        result = func(**kwargs)
+        
+        # 统计调用次数（支持天/小时）
+        try:
+            now = datetime.now()
+            day_str = now.strftime('%Y-%m-%d')
+            hour_str = now.strftime('%Y-%m-%d-%H')
+            stats_file = os.path.join(PATHS["BASE_DIR"], "call_stats.json")
+            # 兼容旧数据结构
+            if os.path.exists(stats_file):
+                with open(stats_file, "r", encoding="utf-8") as f:
+                    stats = json.load(f)
+                if "history_day" not in stats or not isinstance(stats["history_day"], dict):
+                    stats["history_day"] = {}
+                if "history_hour" not in stats or not isinstance(stats["history_hour"], dict):
+                    stats["history_hour"] = {}
+            else:
+                stats = {"total": 0, "functions": {}, "history_day": {}, "history_hour": {}}
+            # 总数
+            stats["total"] = stats.get("total", 0) + 1
+            stats["functions"][function_name] = stats["functions"].get(function_name, 0) + 1
+            # 按天
+            if day_str not in stats["history_day"] or not isinstance(stats["history_day"][day_str], dict):
+                stats["history_day"][day_str] = {"total": 0}
+            stats["history_day"][day_str]["total"] = stats["history_day"][day_str].get("total", 0) + 1
+            stats["history_day"][day_str][function_name] = stats["history_day"][day_str].get(function_name, 0) + 1
+            # 按小时
+            if hour_str not in stats["history_hour"] or not isinstance(stats["history_hour"][hour_str], dict):
+                stats["history_hour"][hour_str] = {"total": 0}
+            stats["history_hour"][hour_str]["total"] = stats["history_hour"][hour_str].get("total", 0) + 1
+            stats["history_hour"][hour_str][function_name] = stats["history_hour"][hour_str].get(function_name, 0) + 1
+            with open(stats_file, "w", encoding="utf-8") as f:
+                json.dump(stats, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            logger.error(f"Error updating call stats: {e}")
+        
+        return result
             
     except Exception as e:
         logger.error(f"Error calling function {function_name}: {e}")

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>调用监控面板</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 32px 40px 40px 40px;
+        }
+        h1 {
+            margin-top: 0;
+            color: #2196F3;
+        }
+        .nav {
+            margin-bottom: 24px;
+        }
+        .nav a {
+            display: inline-block;
+            background: #2196F3;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+        .nav a:hover {
+            background: #1976D2;
+        }
+        .stats-summary {
+            margin-bottom: 32px;
+            font-size: 18px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fafafa;
+        }
+        th, td {
+            padding: 12px 8px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        th {
+            background: #f0f0f0;
+            color: #2196F3;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .refresh-btn {
+            float: right;
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-bottom: 16px;
+        }
+        .refresh-btn:hover {
+            background: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <div class="container">
+        <div class="nav">
+            <a href="/admin/">返回管理首页</a>
+        </div>
+        <h1>调用监控面板</h1>
+        <div class="stats-summary">
+            <span id="total-calls">总调用次数：--</span>
+            <button class="refresh-btn" onclick="loadStats()">刷新</button>
+            <select id="mode-select" style="margin-left:20px;">
+                <option value="day">最近7天（按天）</option>
+                <option value="hour">今日（按小时）</option>
+            </select>
+            <select id="func-select" style="margin-left:10px;"></select>
+        </div>
+        <div id="chart" style="width:100%;height:400px;"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>函数名称</th>
+                    <th>调用次数</th>
+                </tr>
+            </thead>
+            <tbody id="stats-table">
+                <tr><td colspan="2">加载中...</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let statsData = null;
+        let chart = echarts.init(document.getElementById('chart'));
+        async function loadStats() {
+            const table = document.getElementById('stats-table');
+            const totalSpan = document.getElementById('total-calls');
+            table.innerHTML = '<tr><td colspan="2">加载中...</td></tr>';
+            try {
+                const res = await fetch('/admin/call_stats_data');
+                if (!res.ok) throw new Error('网络错误');
+                const data = await res.json();
+                statsData = data;
+                totalSpan.textContent = '总调用次数：' + (data.total || 0);
+                if (data.functions && Object.keys(data.functions).length > 0) {
+                    table.innerHTML = Object.entries(data.functions).map(([name, count]) =>
+                        `<tr><td>${name}</td><td>${count}</td></tr>`
+                    ).join('');
+                } else {
+                    table.innerHTML = '<tr><td colspan="2">暂无调用数据</td></tr>';
+                }
+                updateFuncSelect();
+                drawChart();
+            } catch (e) {
+                table.innerHTML = `<tr><td colspan="2">加载失败：${e.message}</td></tr>`;
+            }
+        }
+        function updateFuncSelect() {
+            const sel = document.getElementById('func-select');
+            sel.innerHTML = '';
+            sel.appendChild(new Option('全部', 'total'));
+            if (statsData && statsData.functions) {
+                Object.keys(statsData.functions).forEach(fn => {
+                    sel.appendChild(new Option(fn, fn));
+                });
+            }
+        }
+        function drawChart() {
+            const mode = document.getElementById('mode-select').value;
+            const func = document.getElementById('func-select').value;
+            let xData = [], yData = [];
+            if (!statsData) return;
+            if (mode === 'day') {
+                xData = Object.keys(statsData.history_day);
+                yData = xData.map(d => (statsData.history_day[d][func] || 0));
+            } else {
+                xData = Object.keys(statsData.history_hour);
+                yData = xData.map(h => (statsData.history_hour[h][func] || 0));
+            }
+            chart.setOption({
+                tooltip: { trigger: 'axis' },
+                xAxis: { type: 'category', data: xData },
+                yAxis: { type: 'value' },
+                series: [{
+                    data: yData,
+                    type: 'line',
+                    smooth: true,
+                    areaStyle: {},
+                    name: func === 'total' ? '总调用数' : func
+                }],
+                title: { text: (func === 'total' ? '总调用数' : func + ' 调用数') + (mode === 'day' ? '（最近7天）' : '（今日24小时）') }
+            });
+        }
+        document.getElementById('mode-select').onchange = drawChart;
+        document.getElementById('func-select').onchange = drawChart;
+        loadStats();
+    </script>
+</body>
+</html> 

@@ -1,0 +1,6 @@
+{
+    "url": "/function/example_function",
+    "method": "GET",
+    "description": "无参数示例函数 - 返回Hello World",
+    "parameters": []
+} 

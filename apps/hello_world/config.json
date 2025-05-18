@@ -1,0 +1,6 @@
+{
+    "url": "/function/hello_world",
+    "method": "GET",
+    "description": "简单的Hello World示例函数",
+    "parameters": []
+} 
