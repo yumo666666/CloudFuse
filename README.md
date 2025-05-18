@@ -2,8 +2,14 @@
   <img src="image/CloudFuse.svg" alt="CloudFuse Logo" width="120"/>
 </p>
 
-![Demo](./image/1.jpg)  
-![Demo](./image/2.jpg) 
+<div align="center">
+<table>
+<tr>
+<td><img src="./image/1.jpg" alt="Demo 1" width="400"/></td>
+<td><img src="./image/2.jpg" alt="Demo 2" width="400"/></td>
+</tr>
+</table>
+</div>
 
 # CloudFuse - 云函数管理系统
 
