@@ -1,7 +1,0 @@
-/function/calculate
-/function/echo_message
-/function/example_function
-/function/functions
-/function/hello_world
-/functions
-/function/get_random_xlsx_line
