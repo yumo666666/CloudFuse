@@ -1,0 +1,6 @@
+{
+    "url": "/functions",
+    "method": "GET",
+    "name": "获取所有可用函数列表",
+    "parameters": []
+} 

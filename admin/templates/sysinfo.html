@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-top-bar">
+    <span class="page-title">基础信息</span>
+</div>
+<div style="padding:0 36px;">
+    <div class="sysinfo-top">
+        <div class="sysinfo-card">
+            <div class="sysinfo-logo">
+                <img src="/static/logo.svg" alt="logo" style="width:48px;height:48px;">
+            </div>
+            <div class="sysinfo-meta">
+                <div class="sysinfo-title">CloudFuse 云函数管理系统</div>
+                <div class="sysinfo-author">作者：YourName</div>
+                <div class="sysinfo-version">版本：v1.0.0</div>
+            </div>
+        </div>
+    </div>
+    <div class="stats-cards">
+        <div class="stats-card">
+            <div class="stats-card-title">总函数个数</div>
+            <div class="stats-card-value" id="total-functions">--</div>
+        </div>
+        <div class="stats-card">
+            <div class="stats-card-title">总调用次数</div>
+            <div class="stats-card-value" id="total-calls">--</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block body_end %}
+<script src="/static/js/sysinfo.js"></script>
+{% endblock %} 

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-top-bar">
+    <span class="page-title">日志信息</span>
+</div>
+<div style="padding:0 36px;max-width:1400px;margin:auto;">
+    <div id="log-realtime-panel">
+        <pre id="log-cards" class="log-content-pre"></pre>
+    </div>
+</div>
+{% endblock %}
+{% block body_end %}
+<script src="/static/js/log.js"></script>
+{% endblock %} 

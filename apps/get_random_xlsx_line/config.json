@@ -1,0 +1,14 @@
+{
+    "url": "/function/get_random_xlsx_line",
+    "method": "GET",
+    "name": "从Excel文件中随机获取一行数据",
+    "parameters": [
+        {
+            "name": "filename",
+            "type": "string",
+            "required": true,
+            "description": "Excel文件名称（需位于xlsx_files目录下）",
+            "default": "中国近现代史单选.xlsx"
+        }
+    ]
+} 

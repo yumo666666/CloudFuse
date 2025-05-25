@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CloudFuse 云函数管理系统</title>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/svg+xml" href="/static/logo.svg">
+    <link rel="stylesheet" href="/static/style.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+<div class="main-layout">
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/static/logo.svg" alt="logo" style="width:40px;height:40px;">
+        </div>
+        <div class="sidebar-title">CloudFuse</div>
+        <div class="sidebar-menu">
+            <a class="sidebar-menu-item {% if page=='sysinfo' %}active{% endif %}" href="/admin/sysinfo">基础信息</a>
+            <a class="sidebar-menu-item {% if page=='apidebug' %}active{% endif %}" href="/admin/apidebug">接口调试</a>
+            <a class="sidebar-menu-item {% if page=='log' %}active{% endif %}" href="/admin/log">日志信息</a>
+            <a class="sidebar-menu-item {% if page=='file' %}active{% endif %}" href="/admin/file">文件管理</a>
+        </div>
+        <div class="sidebar-footer">© 2024 YourName</div>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+{% block body_end %}{% endblock %}
+</body>
+</html> 

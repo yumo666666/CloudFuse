@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-top-bar">
+    <span class="page-title">文件管理</span>
+</div>
+<div style="padding:0 36px;">
+    <div id="file-toolbar" style="display:flex;align-items:center;gap:10px;margin:18px 0 10px 0;">
+        <button id="file-btn-back" class="file-toolbar-btn" title="返回上一级"><span>⬅️</span></button>
+        <button id="file-btn-add" class="file-toolbar-btn" title="新建文件夹/文件"><span>➕</span></button>
+        <button id="file-btn-refresh" class="file-toolbar-btn" title="刷新"><span>🔄</span></button>
+        <button id="file-btn-upload" class="file-toolbar-btn" title="上传"><span>⏫</span></button>
+        <div id="file-path-nav" class="file-path-box"></div>
+    </div>
+    <div id="file-table-container"></div>
+</div>
+<input type="file" id="file-folder-upload" webkitdirectory directory multiple style="display:none">
+<div id="file-dialog-mask" style="display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.18);z-index:2000;align-items:center;justify-content:center;"></div>
+<div id="file-dialog" style="display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border-radius:12px;box-shadow:0 4px 32px rgba(0,0,0,0.13);z-index:2001;min-width:320px;max-width:90vw;padding:32px 28px 24px 28px;"></div>
+<div id="edit-dialog" class="edit-dialog" style="display: none;">
+    <div class="edit-dialog-content">
+        <button class="edit-dialog-close" onclick="hideEditDialog()">×</button>
+        <div class="file-list-panel" style="display: none;">
+            <div class="file-list-title">文件列表</div>
+            <div class="file-list-content"></div>
+        </div>
+        <div class="file-content-panel">
+            <div id="current-file-title" style="font-weight: bold; font-size: 16px; margin-bottom: 10px;"></div>
+            <div id="file-content-area" style="flex: 1; display: flex; flex-direction: column; min-height: 0;">
+                <textarea id="file-editor" class="file-editor" placeholder="加载中..."></textarea>
+            </div>
+            <div class="dialog-buttons">
+                <button id="edit-save-btn" style="background:#2196F3;color:#fff;border:none;border-radius:6px;padding:8px 22px;font-size:15px;">保存</button>
+                <button id="edit-cancel-btn" style="background:#e3f0ff;color:#2196F3;border:none;border-radius:6px;padding:8px 22px;font-size:15px;">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block body_end %}
+<script src="/static/js/file.js"></script>
+{% endblock %} 

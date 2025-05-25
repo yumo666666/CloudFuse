@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-top-bar">
+    <span class="page-title">接口调试</span>
+</div>
+<div style="display:flex;height:calc(100vh - 60px - 20px);background:#f7faff;">
+    <!-- 左侧API列表 -->
+    <div id="apilist-panel" style="width:270px;background:#f3f7fd;border-right:1px solid #e3eaf2;display:flex;flex-direction:column;">
+        <div style="padding:18px 18px 8px 18px;">
+            <input id="api-search" type="text" placeholder="搜索 API" style="width:100%;padding:8px 12px;border-radius:8px;border:1px solid #e3eaf2;background:#fff;outline:none;font-size:15px;">
+        </div>
+        <div id="api-list" style="flex:1;overflow-y:auto;padding:0 8px 8px 8px;"></div>
+    </div>
+    <!-- 右侧详情区 -->
+    <div id="apidetail-panel" style="flex:1;display:flex;flex-direction:column;align-items:stretch;overflow-y:auto;padding:0 0 0 0;">
+        <div id="api-detail-content" style="margin:32px auto 0 auto;width:90%;max-width:900px;"></div>
+    </div>
+</div>
+{% endblock %}
+{% block body_end %}
+<script src="/static/js/apidebug.js"></script>
+{% endblock %} 

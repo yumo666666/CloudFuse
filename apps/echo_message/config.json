@@ -1,0 +1,14 @@
+{
+    "url": "/function/echo_message",
+    "method": "GET",
+    "name": "一个参数的示例函数，回显消息的示例函数",
+    "parameters": [
+        {
+            "name": "message",
+            "type": "string",
+            "required": true,
+            "description": "要回显的消息内容",
+            "default": "Hello Word!"
+        }
+    ]
+} 
