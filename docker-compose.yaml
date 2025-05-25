@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  CloudFuse:
+    container_name: CloudFuse
+    image: yumo666/cloudfuse:v1.1
+    ports:
+      - "8000:8000"  # 将容器的8000端口映射到主机的8000端口
+    volumes:
+      - ./:/app  # 将整个项目目录挂载到容器的/app目录
+    restart: unless-stopped 
