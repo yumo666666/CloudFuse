@@ -41,3 +41,6 @@ attrs>=21.2.0  # 属性管理
 setuptools>=57.5.0  # 包管理
 toml>=0.10.2  # TOML文件支持
 typing_extensions>=3.10.0  # 类型扩展
+jinja2>=3.0.0
+uvicorn[standard]>=0.20.0
+websockets>=10.0
