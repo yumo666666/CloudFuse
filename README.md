@@ -1,16 +1,23 @@
 <p align="center">
   <img src="image/CloudFuse.svg" alt="CloudFuse Logo" width="120"/>
 </p>
+
 <h1 align="center">CloudFuse</h1>
 
-|                        |                        |
-| -----------------------| ---------------------- |
+<h3 align="center">一个现代化的云函数管理平台</h3>
+
+<p align="center">
+  CloudFuse 是一个基于 FastAPI 的现代化云函数管理平台，支持函数的动态上传、管理、调用、依赖自动安装、调用统计、实时日志监控等功能，适合自建 Serverless/FAAS 场景。
+</p>
+
+---
+
+## ✨ 功能预览
+
+|                      |                      |
+| -------------------- | -------------------- |
 | ![Demo](./image/1.png) | ![Demo](./image/2.png) |
 | ![Demo](./image/3.png) | ![Demo](./image/4.png) |
-
-# CloudFuse - 云函数管理系统
-
-CloudFuse 是一个基于 FastAPI 的现代化云函数管理平台，支持函数的动态上传、管理、调用、依赖自动安装、调用统计、实时日志监控等功能，适合自建 Serverless/FAAS 场景。
 
 ---
 
@@ -32,21 +39,21 @@ CloudFuse 是一个基于 FastAPI 的现代化云函数管理平台，支持函�
 
 ```
 .
-├── admin/                # 后台管理前端模板与静态资源
+├── admin/              # 后台管理前端模板与静态资源
 │   ├── static/
 │   └── templates/
-├── apps/                 # 所有云函数目录
+├── apps/               # 所有云函数目录
 │   └── <function_name>/
 │       ├── function.py
 │       ├── config.json
 │       ├── intro.md
 │       ├── requirements.txt
 │       └── ...
-├── logs/                 # 日志目录，仅有 app.log
+├── logs/               # 日志目录，仅有 app.log
 │   └── app.log
-├── main.py               # FastAPI 启动入口
-├── config.py             # 配置文件（含日志、路径、API等）
-├── requirements.txt      # 依赖
+├── main.py             # FastAPI 启动入口
+├── config.py           # 配置文件（含日志、路径、API等）
+├── requirements.txt    # 依赖
 └── README.md
 ```
 
@@ -54,19 +61,19 @@ CloudFuse 是一个基于 FastAPI 的现代化云函数管理平台，支持函�
 
 ## 快速开始
 
-1. **安装依赖**
-   ```bash
-   pip install -r requirements.txt
-   ```
+1.  **安装依赖**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-2. **启动服务**
-   ```bash
-   python main.py
-   ```
+2.  **启动服务**
+    ```bash
+    python main.py
+    ```
 
-3. **访问管理后台**
-   - Web 管理页面：http://localhost:8000/admin/
-   - API 文档：http://localhost:8000/docs
+3.  **访问管理后台**
+    - Web 管理页面：http://localhost:8000/admin/
+    - API 文档：http://localhost:8000/docs
 
 ---
 
