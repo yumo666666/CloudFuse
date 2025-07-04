@@ -2,9 +2,10 @@
   <img src="image/CloudFuse.svg" alt="CloudFuse Logo" width="120"/>
 </p>
 
-
-| ![Demo](./imges/1.png) | ![Demo](./imges/2.png) |
-| ![Demo](./imges/3.png) | ![Demo](./imges/4.png) |
+|                        |                        |
+| -----------------------| ---------------------- |
+| ![Demo](./image/1.png) | ![Demo](./image/2.png) |
+| ![Demo](./image/3.png) | ![Demo](./image/4.png) |
 
 # CloudFuse - 云函数管理系统
 
