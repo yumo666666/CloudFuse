@@ -2,6 +2,10 @@
   <img src="image/CloudFuse.svg" alt="CloudFuse Logo" width="120"/>
 </p>
 
+
+| ![Demo](./imges/1.png) | ![Demo](./imges/2.png) |
+| ![Demo](./imges/3.png) | ![Demo](./imges/4.png) |
+
 # CloudFuse - 云函数管理系统
 
 CloudFuse 是一个基于 FastAPI 的现代化云函数管理平台，支持函数的动态上传、管理、调用、依赖自动安装、调用统计、实时日志监控等功能，适合自建 Serverless/FAAS 场景。
