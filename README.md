@@ -1,6 +1,7 @@
 <p align="center">
   <img src="image/CloudFuse.svg" alt="CloudFuse Logo" width="120"/>
 </p>
+<h1 align="center">CloudFuse</h1>
 
 |                        |                        |
 | -----------------------| ---------------------- |
